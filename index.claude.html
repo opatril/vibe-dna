@@ -304,6 +304,14 @@
             margin-bottom: 0.25rem;
             color: #d1d5db;
         }
+
+        .snp-link {
+            text-decoration-line: underline;
+            text-decoration-style: dotted;
+            text-underline-offset: 2px;
+            color: #a5b4fc;
+            font-weight: 600;
+        }
         .category-section {
             max-width: 1400px;
             margin: 0 auto;
@@ -1261,6 +1269,16 @@
             return card;
         }
 
+        function linkifyRsReferences(text) {
+            if (!text) return '';
+
+            const rsPattern = /\brs\d+\b/gi;
+            return text.replace(rsPattern, (match) => {
+                const normalized = normalizeRsid(match);
+                return `<a href="#snp-${normalized}" class="snp-link">${match}</a>`;
+            });
+        }
+      
         function createCombinedScoreHtml(combinedScoreInfo) {
             if (!combinedScoreInfo) return '';
 
@@ -1294,9 +1312,10 @@
                     const strandIndicator = snp.isReverseComplement
                         ? '<span style="color: #a5b4fc; font-size: 0.75rem; margin-left: 0.5rem;" title="Genotyp byl automaticky převeden na opačnou orientaci DNA vlákna">🔄 RC</span>'
                         : '';
+                    const descriptionHtml = linkifyRsReferences(snp.description);
 
                     html += `
-                        <div class="snp-info">
+                        <div class="snp-info" id="snp-${normalizeRsid(snp.rsid)}">
                             <div class="snp-header">
                                 <span class="gene-name">${snp.gene} (${snp.rsid})</span>
                                 <span>
@@ -1304,7 +1323,7 @@
                                 </span>
                             </div>
                             <div style="color: #d1d5db; margin-top: 0.5rem;">
-                                ${snp.description}
+                                ${descriptionHtml}
                             </div>
                             ${snp.partOfCombinedScore && snp.weight !== undefined ? `
                                 <div class="combined-score-meta" style="margin-top: 0.35rem;">
