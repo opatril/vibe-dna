@@ -716,6 +716,18 @@
             return clean.split("").sort().join("");
         }
 
+        function complementGenotype(gt) {
+            const COMPLEMENTS = { A: "T", T: "A", C: "G", G: "C" };
+            const clean = normalizeGenotype(gt);
+            if (clean.length !== 2) return clean;
+
+            return clean
+                .split("")
+                .map(base => COMPLEMENTS[base] || base)
+                .sort()
+                .join("");
+        }
+
         function parseFTDNACsv(text, onProgress) {
             const lines = text.split(/\r?\n/);
             const map = new Map();
@@ -833,7 +845,11 @@
                 normMap.set(normalizeGenotype(key), snpObj.alleles[key]);
             }
 
-            return normMap.get(ngt) || null;
+            const directMatch = normMap.get(ngt);
+            if (directMatch) return directMatch;
+
+            const complementMatch = normMap.get(complementGenotype(ngt));
+            return complementMatch || null;
         }
 
         function computeTraitScore(trait, snpsMap) {
