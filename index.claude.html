@@ -366,6 +366,7 @@
             border-radius: 0.25rem;
             margin-left: 0.5rem;
         }
+        .evidence-strong { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
         .evidence-high { background: rgba(16, 185, 129, 0.2); color: #10b981; }
         .evidence-moderate { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
         .evidence-low { background: rgba(249, 115, 22, 0.2); color: #f97316; }
@@ -1105,11 +1106,15 @@
             };
 
             const evidenceLabels = {
-                'high': '🟢',
-                'moderate': '🟡',
-                'low': '🟠',
-                'emerging': '🔵'
+                'strong': '🟢 Silná',
+                'high': '🟢 Vysoká',
+                'moderate': '🟡 Střední',
+                'low': '🟠 Nízká',
+                'emerging': '🔵 Nově se objevující'
             };
+
+            const evidenceKey = trait.evidence || 'moderate';
+            const evidenceLabel = evidenceLabels[evidenceKey] || evidenceLabels['moderate'];
 
             if (comparisonMode && traitB) {
                 // Comparison mode - side by side
@@ -1118,8 +1123,8 @@
                         <div class="trait-title">
                             <span style="font-size: 1.5rem;">${trait.icon}</span>
                             <span>${trait.name}</span>
-                            <span class="evidence-badge evidence-${trait.evidence || 'moderate'}">
-                                ${evidenceLabels[trait.evidence || 'moderate']} ${trait.evidence || 'moderate'}
+                            <span class="evidence-badge evidence-${evidenceKey}">
+                                ${evidenceLabel}
                             </span>
                         </div>
                     </div>
@@ -1157,8 +1162,8 @@
                         <div class="trait-title">
                             <span style="font-size: 1.5rem;">${trait.icon}</span>
                             <span>${trait.name}</span>
-                            <span class="evidence-badge evidence-${trait.evidence || 'moderate'}">
-                                ${evidenceLabels[trait.evidence || 'moderate']} ${trait.evidence || 'moderate'}
+                            <span class="evidence-badge evidence-${evidenceKey}">
+                                ${evidenceLabel}
                             </span>
                         </div>
                         <div class="score-badge score-${trait.score}">
