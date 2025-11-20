@@ -428,6 +428,20 @@
             font-size: 0.9rem;
         }
 
+        .population-chip.highlight {
+            border-color: rgba(79, 70, 229, 0.45);
+            background: rgba(79, 70, 229, 0.12);
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+        }
+
+        .population-section-title {
+            color: #9ca3af;
+            font-size: 0.8rem;
+            letter-spacing: 0.01em;
+            margin: 0 0 0.25rem 0;
+            text-transform: uppercase;
+        }
+
         .population-note {
             color: #9ca3af;
             font-size: 0.85rem;
@@ -594,18 +608,6 @@
         let userResults = {};
         let userResultsB = {};
         let comparisonMode = false;
-
-        const POPULATION_CONTEXT = {
-            rs174547: {
-                title: "Evropské zastoupení genotypů",
-                frequencies: [
-                    { genotype: "TT", value: "≈28 %" },
-                    { genotype: "CT", value: "≈56 %" },
-                    { genotype: "CC", value: "≈16 %" },
-                ],
-                note: "Četnosti z publikovaných evropských kohort; mohou se lišit podle konkrétní populace.",
-            },
-        };
 
         // Constants for scoring
         const SCORE_POINTS = {
@@ -970,7 +972,8 @@
                         score: score,
                         description: allele?.description || "Genotyp v databázi nemá specifický popis.",
                         evidence: snpObj.evidence || trait.evidence || "moderate",
-                        isReverseComplement: allele?.isReverseComplement || false
+                        isReverseComplement: allele?.isReverseComplement || false,
+                        populationFrequency: snpObj.population_frequency_eur || null
                     });
                 } else {
                     perSnp.push({
@@ -979,7 +982,8 @@
                         genotype: null,
                         score: null,
                         description: "SNP nebyl v nahraném souboru nalezen.",
-                        evidence: snpObj?.evidence || trait.evidence || "moderate"
+                        evidence: snpObj?.evidence || trait.evidence || "moderate",
+                        populationFrequency: snpObj?.population_frequency_eur || null
                     });
                 }
             }
@@ -1241,20 +1245,56 @@
                         ? '<span style="color: #a5b4fc; font-size: 0.75rem; margin-left: 0.5rem;" title="Genotyp byl automaticky převeden na opačnou orientaci DNA vlákna">🔄 RC</span>'
                         : '';
 
-                    const populationInfo = snp.rsid ? POPULATION_CONTEXT[snp.rsid.toLowerCase()] : null;
-                    const populationHtml = populationInfo
+                    const formatPercentage = (value) => {
+                        if (value === null || value === undefined) return null;
+                        if (typeof value === 'number') {
+                            const pct = value * 100;
+                            const digits = pct >= 10 ? 1 : 2;
+                            const formatted = pct.toFixed(digits).replace(/\.0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1');
+                            return `${formatted} %`;
+                        }
+                        return String(value);
+                    };
+
+                    const populationInfo = snp.populationFrequency;
+                    const alleleEntries = populationInfo?.alleles ? Object.entries(populationInfo.alleles) : [];
+                    const genotypeEntries = populationInfo?.genotypes ? Object.entries(populationInfo.genotypes) : [];
+
+                    const alleleGrid = alleleEntries.length
+                        ? `
+                            <div class="population-section-title">Alelové četnosti (Evropa)</div>
+                            <div class="population-grid">
+                                ${alleleEntries.map(([allele, val]) => `
+                                    <div class="population-chip">
+                                        <span>${allele}</span>
+                                        <span>${formatPercentage(val)}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `
+                        : '';
+
+                    const genotypeGrid = genotypeEntries.length
+                        ? `
+                            <div class="population-section-title">Genotypy (Evropa)</div>
+                            <div class="population-grid">
+                                ${genotypeEntries.map(([genotype, val]) => `
+                                    <div class="population-chip ${snp.genotype === genotype ? 'highlight' : ''}">
+                                        <span>${genotype}</span>
+                                        <span>${formatPercentage(val)}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `
+                        : '';
+
+                    const populationHtml = populationInfo && (alleleGrid || genotypeGrid || populationInfo.note)
                         ? `
                             <div class="population-frequency">
-                                <h4>🌍 ${populationInfo.title}</h4>
-                                <div class="population-grid">
-                                    ${populationInfo.frequencies.map(freq => `
-                                        <div class="population-chip">
-                                            <span>${freq.genotype}</span>
-                                            <span>${freq.value}</span>
-                                        </div>
-                                    `).join('')}
-                                </div>
-                                <div class="population-note">${populationInfo.note}</div>
+                                <h4>🌍 Zastoupení v evropské populaci</h4>
+                                ${alleleGrid}
+                                ${genotypeGrid}
+                                ${populationInfo.note ? `<div class="population-note">${populationInfo.note}</div>` : ''}
                             </div>
                         `
                         : '';
