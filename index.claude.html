@@ -449,6 +449,62 @@
         .hidden {
             display: none;
         }
+
+        .population-frequency {
+            margin-top: 0.75rem;
+            padding: 0.75rem;
+            border: 1px solid #374151;
+            border-radius: 0.75rem;
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.05), rgba(17, 24, 39, 0.65));
+        }
+
+        .population-frequency h4 {
+            margin: 0 0 0.5rem 0;
+            font-size: 0.95rem;
+            color: #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .population-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .population-chip {
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.65rem;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #f9fafb;
+            font-size: 0.9rem;
+        }
+
+        .population-chip.highlight {
+            border-color: rgba(79, 70, 229, 0.45);
+            background: rgba(79, 70, 229, 0.12);
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.15);
+        }
+
+        .population-section-title {
+            color: #9ca3af;
+            font-size: 0.8rem;
+            letter-spacing: 0.01em;
+            margin: 0 0 0.25rem 0;
+            text-transform: uppercase;
+        }
+
+        .population-note {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
     </style>
 </head>
 <body class="text-gray-100">
@@ -988,6 +1044,7 @@
                         description: allele?.description || "Genotyp v databázi nemá specifický popis.",
                         evidence: snpObj.evidence || trait.evidence || "moderate",
                         isReverseComplement: allele?.isReverseComplement || false,
+                        populationFrequency: snpObj.population_frequency_eur || null
                         weight: w.weight,
                         weightEvidence: w.evidence,
                         partOfCombinedScore: Boolean(trait.combined_score_model?.score_weights?.length)
@@ -1000,6 +1057,7 @@
                         score: null,
                         description: "SNP nebyl v nahraném souboru nalezen.",
                         evidence: snpObj?.evidence || trait.evidence || "moderate",
+                        populationFrequency: snpObj?.population_frequency_eur || null
                         weight: w.weight,
                         weightEvidence: w.evidence,
                         partOfCombinedScore: Boolean(trait.combined_score_model?.score_weights?.length)
@@ -1314,6 +1372,60 @@
                         : '';
                     const descriptionHtml = linkifyRsReferences(snp.description);
 
+                    const formatPercentage = (value) => {
+                        if (value === null || value === undefined) return null;
+                        if (typeof value === 'number') {
+                            const pct = value * 100;
+                            const digits = pct >= 10 ? 1 : 2;
+                            const formatted = pct.toFixed(digits).replace(/\.0+$/, '').replace(/(\.\d*[1-9])0+$/, '$1');
+                            return `${formatted} %`;
+                        }
+                        return String(value);
+                    };
+
+                    const populationInfo = snp.populationFrequency;
+                    const alleleEntries = populationInfo?.alleles ? Object.entries(populationInfo.alleles) : [];
+                    const genotypeEntries = populationInfo?.genotypes ? Object.entries(populationInfo.genotypes) : [];
+
+                    const alleleGrid = alleleEntries.length
+                        ? `
+                            <div class="population-section-title">Alelové četnosti (Evropa)</div>
+                            <div class="population-grid">
+                                ${alleleEntries.map(([allele, val]) => `
+                                    <div class="population-chip">
+                                        <span>${allele}</span>
+                                        <span>${formatPercentage(val)}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `
+                        : '';
+
+                    const genotypeGrid = genotypeEntries.length
+                        ? `
+                            <div class="population-section-title">Genotypy (Evropa)</div>
+                            <div class="population-grid">
+                                ${genotypeEntries.map(([genotype, val]) => `
+                                    <div class="population-chip ${snp.genotype === genotype ? 'highlight' : ''}">
+                                        <span>${genotype}</span>
+                                        <span>${formatPercentage(val)}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        `
+                        : '';
+
+                    const populationHtml = populationInfo && (alleleGrid || genotypeGrid || populationInfo.note)
+                        ? `
+                            <div class="population-frequency">
+                                <h4>🌍 Zastoupení v evropské populaci</h4>
+                                ${alleleGrid}
+                                ${genotypeGrid}
+                                ${populationInfo.note ? `<div class="population-note">${populationInfo.note}</div>` : ''}
+                            </div>
+                        `
+                        : '';
+
                     html += `
                         <div class="snp-info" id="snp-${normalizeRsid(snp.rsid)}">
                             <div class="snp-header">
@@ -1325,6 +1437,7 @@
                             <div style="color: #d1d5db; margin-top: 0.5rem;">
                                 ${descriptionHtml}
                             </div>
+                            ${populationHtml}
                             ${snp.partOfCombinedScore && snp.weight !== undefined ? `
                                 <div class="combined-score-meta" style="margin-top: 0.35rem;">
                                     Váha v kombinovaném skóre: ${snp.weight} (evidence: ${snp.weightEvidence || 'neuvedena'})
