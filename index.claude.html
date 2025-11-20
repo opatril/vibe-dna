@@ -505,6 +505,25 @@
             font-size: 0.85rem;
             line-height: 1.4;
         }
+
+        .fun-fact {
+            background: linear-gradient(135deg, rgba(251, 191, 36, 0.1), rgba(245, 158, 11, 0.05));
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: start;
+        }
+        .fun-fact-icon {
+            font-size: 1.25rem;
+        }
+        .fun-fact-text {
+            font-size: 0.875rem;
+            color: #fcd34d;
+            line-height: 1.5;
+        }
     </style>
 </head>
 <body class="text-gray-100">
@@ -1177,7 +1196,8 @@
                             snps: result.perSnp,
                             recommendations: trait.recommendations,
                             evidence: trait.evidence,
-                            combinedScoreInfo: result.combinedScoreInfo
+                            combinedScoreInfo: result.combinedScoreInfo,
+                            funFact: trait.fun_fact
                         };
                     }
 
@@ -1193,7 +1213,8 @@
                             snps: resultB.perSnp,
                             recommendations: trait.recommendations,
                             evidence: trait.evidence,
-                            combinedScoreInfo: resultB.combinedScoreInfo
+                            combinedScoreInfo: resultB.combinedScoreInfo,
+                            funFact: trait.fun_fact
                         };
                     }
                     }
@@ -1318,6 +1339,15 @@
             const evidenceKey = trait.evidence || 'moderate';
             const evidenceLabel = evidenceLabels[evidenceKey] || evidenceLabels['moderate'];
 
+            const funFactHtml = trait.funFact ? `
+                <div class="fun-fact">
+                    <div class="fun-fact-icon">💡</div>
+                    <div class="fun-fact-text">
+                        <strong>Věděli jste?</strong> ${trait.funFact}
+                    </div>
+                </div>
+            ` : '';
+
 
             if (comparisonMode && traitB) {
                 // Comparison mode - side by side
@@ -1333,6 +1363,7 @@
                     </div>
 
                     ${combinedScoreHtml}
+                    ${funFactHtml}
 
                     <div class="comparison-grid">
                         <div class="comparison-column">
@@ -1378,6 +1409,7 @@
                     </div>
 
                     ${combinedScoreHtml}
+                    ${funFactHtml}
 
                     <div style="font-size: 0.875rem; color: #9ca3af; margin-bottom: 1rem;">
                         Pokrytí: ${trait.coveragePercent}% SNPs nalezeno

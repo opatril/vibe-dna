@@ -193,7 +193,7 @@
               },
               "AA": {
                 "score": "average",
-                "description": "🧬 <b>Genotyp AA:</b> dvě rizikové A alely. Průměrně vyšší tendence k energetickému příjmu a vyšší BMI (často uváděno ~20–30 % zvýšení rizika obezity oproti TT). Většina nositelů ale při dobrém životním stylu obezitu většinou nemá.\n\n✅ <b>Výhody:</b>\n• Není to „osud“ – pravidelný pohyb a bílkoviny/vláknina umí efekt výrazně potlačit.\n\n❌ <b>Nevýhody:</b>\n• Silnější chuť na energeticky bohatá jídla  \n• Pomalejší nástup sytosti po jídle  \n• Vyšší citlivost na spánek a stres z hlediska přejídání\n\n💡 <b>Jak s tím pracovat:</b> nejvíc pomáhá vyšší příjem bílkovin a vlákniny, pravidelný pohyb a spánková rutina."
+                "description": "🧬 <b>Genotyp AA:</b> dvě rizikové A alely. Máte geneticky nastavený 'opožděný signál sytosti'. Neznamená to, že musíte být obézní, ale váš mozek potřebuje více času, aby zaregistroval, že jste plní. Tento genotyp je spojen s vyšším rizikem nadváhy, pokud si nedáte pozor na velikost porcí.\n\n✅ <b>Výhody:</b>\n• Schopnost přijmout více energie byla v dobách nedostatku evoluční výhodou.\n\n❌ <b>Nevýhody:</b>\n• Opožděný pocit sytosti\n• Vyšší preference kalorických jídel\n\n💡 <b>Tip:</b> Jezte z menších talířů a po jídle počkejte 20 minut, než si přidáte."
               }
             },
             "population_frequency_eur": {
@@ -251,6 +251,7 @@
           "Praktikujte mindful eating - jezte pomalu a vědomě",
           "Spěte dostatečně (7-9 hodin) - nedostatek spánku zvyšuje hlad"
         ],
+        "fun_fact": "Zkratka genu FTO původně znamenala 'Fused Toes' (srostlé prsty), protože vědci ho poprvé objevili u myší, které měly srostlé prstíky. Až později se zjistilo, že u lidí tento gen ovlivňuje váhu a chuť k jídlu, nikoliv prsty.",
         "evidence": "strong",
         "combined_score_model": {
           "model": "weighted_sum",
@@ -335,7 +336,7 @@
               },
               "TT": {
                 "score": "good",
-                "description": "🧬 <b>TT (XX) = absence α‑actinin‑3:</b> v rychlých vláknech chybí α‑actinin‑3 („gene knockout“). V Evropě asi 15–20 % lidí.\n\n✅ <b>Výhody:</b>\n• O něco lepší vytrvalostní profil (maraton, triatlon, cyklistika)  \n• Lepší oxidace tuků při dlouhém aerobním výkonu  \n• Vyšší odolnost vůči únavě v aerobní zátěži\n\n❌ <b>Nevýhody:</b>\n• Nižší výbušná síla a pomalejší nárůst svalové hmoty při čistě silovém tréninku\n\n💡 <b>Poznámka:</b> To, v čem budete nejlepší, určuje hlavně trénink."
+                "description": "🧬 <b>TT (XX) = absence α‑actinin‑3:</b> v rychlých vláknech chybí protein α‑actinin‑3. To znamená, že nemáte genetickou výhodu pro explozivní sprinty, ale vaše svaly pracují ekonomičtěji při vytrvalosti.\n\n✅ <b>Výhody:</b>\n• Lepší metabolická efektivita při dlouhém výkonu (maraton, triatlon)\n• Nižší riziko svalového poškození při vytrvalosti\n\n❌ <b>Nevýhody:</b>\n• Nižší potenciál pro maximální explozivní sílu (sprinty na 100m)\n\n💡 <b>Zajímavost:</b> Tento genotyp zcela chybí mezi olympijskými finalisty ve sprintu."
               }
             },
             "population_frequency_eur": {
@@ -447,6 +448,7 @@
           "Pokud máte předpoklady pro sílu: posilování, sprinty, HIIT",
           "Vyvážený profil: kombinovaný trénink (CrossFit, funkční trénink)"
         ],
+        "fun_fact": "Genotypu XX (váš případ) se někdy říká 'gen maratonců'. Zajímavé je, že tento genotyp zcela chybí mezi olympijskými sprintery na 100 metrů – na takové úrovni je funkční svalový protein alfa-aktinin-3 pro explozivní sílu nezbytný.",
         "evidence": "moderate",
         "combined_score_model": {
           "model": "weighted_sum",
@@ -907,6 +909,7 @@
           "Sledujte vedlejší účinky (nervozita, bušení srdce, nespavost)",
           "Pijte hodně vody - kofein dehydratuje"
         ],
+        "fun_fact": "Věděli jste, že pro 'rychlé metabolizéry' (genotyp AA) má káva často ochranný vliv na srdce, zatímco pro 'pomalé metabolizéry' může riziko infarktu mírně zvyšovat? Vaše genetika určuje, zda je pro vás espresso lékem nebo jedem.",
         "evidence": "strong",
         "combined_score_model": {
           "model": "weighted_sum",
@@ -1299,6 +1302,7 @@
           "Omezte nadměrný alkohol a kouření – zvyšují nároky na folát",
           "V těhotenství nebo plánování gravidity řešte suplementaci s lékařem"
         ],
+        "fun_fact": "Mutace MTHFR je velmi častá (má ji cca 40 % lidí). Internetové mýty ji často démonizují, ale ve skutečnosti se efekt dá snadno kompenzovat pestrou stravou.",
         "evidence": "moderate",
         "combined_score_model": {
           "model": "weighted_sum",
@@ -2477,6 +2481,7 @@
           "Kontrolujte hladiny každé 1-2 roky",
           "Sublingvální nebo injekční forma při vážném nedostatku"
         ],
+        "fun_fact": "Máte-li variantu 'non-secretor' (snížená absorpce B12), máte jednu skrytou superschopnost: jste geneticky téměř imunní vůči nejběžnějšímu typu střevní chřipky (Noroviru)!",
         "evidence": "strong",
         "combined_score_model": {
           "model": "weighted_sum",
@@ -2501,6 +2506,146 @@
       "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
       "low": "První nebo slabé studie; berte spíš orientačně.",
       "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "sensory": {
+    "name": "Smysly a intolerance",
+    "icon": "👅",
+    "description": "Jak vaše DNA ovlivňuje chutě a trávení",
+    "traits": {
+      "lactose": {
+        "name": "Laktózová intolerance",
+        "icon": "🥛",
+        "snps": {
+          "rs4988235": {
+            "gene": "LCT",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Laktázová perzistence. Máte genetickou výbavu pro trávení mléčného cukru (laktózy) i v dospělosti. Mléko vám pravděpodobně nedělá potíže."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Laktázová perzistence. Jedna funkční alela obvykle stačí k zachování produkce laktázy. Mléko byste měli trávit bez problémů."
+              },
+              "GG": {
+                "score": "poor",
+                "description": "Laktózová intolerance (původní genotyp). Vaše tělo v dospělosti přestává produkovat enzym laktázu. Konzumace čerstvého mléka vám může způsobovat nadýmání a křeče."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+            "Pokud máte intoleranci: vyhněte se čerstvému mléku.",
+            "Zakysané výrobky (jogurt, kefír, tvrdé sýry) mají méně laktózy a mohou být tolerovány.",
+            "Zkuste bezlaktózové mléko nebo rostlinné alternativy.",
+            "Suplementace enzymem laktázou před jídlem může pomoci."
+        ],
+        "evidence": "high",
+        "fun_fact": "Schopnost pít mléko v dospělosti je ve skutečnosti 'mutace', která se rozšířila v Evropě s nástupem pastevectví. Původní nastavení člověka (a většiny savců) je mléko v dospělosti netrávit."
+      },
+      "alcohol_flush": {
+        "name": "Metabolismus alkoholu",
+        "icon": "🍷",
+        "snps": {
+          "rs671": {
+            "gene": "ALDH2",
+            "alleles": {
+              "GG": {
+                "score": "good",
+                "description": "Normální aktivita enzymu. Alkohol odbouráváte standardní rychlostí (nezačervenáte se po jedné skleničce)."
+              },
+              "GA": {
+                "score": "average",
+                "description": "Snížená aktivita ALDH2 ('Asian Flush'). Po alkoholu můžete zrudnout, cítit bušení srdce nebo nevolnost, protože se hromadí toxický acetaldehyd."
+              },
+              "AA": {
+                "score": "poor",
+                "description": "Výrazně snížená aktivita enzymu. Alkohol snášíte velmi špatně, silná reakce (červenání, nevolnost) i po malém množství."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+            "Pokud máte reakci (flush): omezte alkohol na minimum.",
+            "Zvýšené riziko poškození jícnu a jater při pití alkoholu u nositelů A alely.",
+            "Pijte pomalu a prokládejte vodou."
+        ],
+        "evidence": "high",
+        "fun_fact": "Genetická varianta způsobující 'Asian Flush' (červenání po alkoholu) funguje v podstatě jako lék Antabus – tělo nedokáže rychle odbourat toxický meziprodukt alkoholu, což vás 'odrazuje' od dalšího pití."
+      },
+      "cilantro": {
+        "name": "Chuť koriandru",
+        "icon": "🌿",
+        "snps": {
+          "rs72921001": {
+            "gene": "OR6A2",
+            "alleles": {
+              "AA": {
+                "score": "good",
+                "description": "Koriandr vám pravděpodobně chutná normálně (bylinkově/citrusově)."
+              },
+              "AC": {
+                "score": "average",
+                "description": "Můžete vnímat mýdlovou pachuť koriandru."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Koriandr vám pravděpodobně chutná jako mýdlo nebo saponát. Je to dáno citlivostí na aldehydy v listech."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+            "Pokud vám koriandr nechutná, není to vaše vina – je to vaše DNA.",
+            "Zkuste petržel nebo bazalku jako náhradu."
+        ],
+        "evidence": "moderate",
+        "fun_fact": "Pokud vám koriandr chutná jako mýdlo, není to vybíravost, ale mutace v čichových receptorech, která vám umožňuje cítit specifické chemické látky (aldehydy), které ostatní necítí."
+      },
+      "bitter_taste": {
+        "name": "Vnímání hořkosti",
+        "icon": "🥦",
+        "snps": {
+          "rs713598": {
+            "gene": "TAS2R38",
+            "alleles": {
+              "CC": {
+                "score": "average",
+                "description": "Supertaster (nebo střední). Jste citliví na hořkou chuť (např. v brokolici, kávě, pivu, grepu). Může to znamenat, že nemáte rádi určitou zeleninu."
+              },
+              "CG": {
+                "score": "average",
+                "description": "Střední vnímání hořkosti."
+              },
+              "GG": {
+                "score": "good",
+                "description": "Non-taster. Hořkou chuť vnímáte méně intenzivně. Pravděpodobně vám nevadí černá káva, hořká čokoláda nebo růžičková kapusta."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+            "Supertasters: maskujte hořkost zeleniny úpravou (pečení, koření, sýr).",
+            "Hořká chuť v přírodě často signalizovala jed – vaše tělo je jen extra opatrné."
+        ],
+        "evidence": "high",
+        "fun_fact": "Tzv. 'supertasters' mají na jazyku více chuťových pohárků. Často jsou štíhlejší, protože jim nechutnají tučná a sladká jídla, ale zároveň se vyhýbají zdravé hořké zelenině."
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky výhodná varianta.",
+      "good": "Běžná nebo neutrální varianta.",
+      "average": "Méně výhodná varianta nebo odlišné vnímání.",
+      "poor": "Riziková varianta nebo intolerance."
+    },
+    "evidence_scale": {
+      "high": "Silná evidence.",
+      "moderate": "Střední evidence."
     }
   }
 }
