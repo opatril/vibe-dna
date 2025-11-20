@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyDNA - Analýza Genetických Dat</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .app-container {
+            display: flex;
+            height: 100vh;
+        }
+        .sidebar {
+            width: 240px;
+            background: linear-gradient(180deg, #1f2937 0%, #111827 100%);
+            border-right: 2px solid #4f46e5;
+            position: fixed;
+            left: 0;
+            top: 0;
+            height: 100vh;
+            overflow-y: auto;
+            z-index: 100;
+            transition: transform 0.3s ease;
+        }
+        .sidebar-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #374151;
+            position: sticky;
+            top: 0;
+            background: #1f2937;
+            z-index: 10;
+        }
+        .sidebar-menu {
+            padding: 1rem 0.5rem;
+        }
+        .menu-item {
+            display: flex;
+            align-items: center;
+            padding: 0.625rem 0.75rem;
+            margin: 0.25rem 0;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #9ca3af;
+            font-size: 0.8125rem;
+            font-weight: 500;
+        }
+        .menu-item:hover {
+            background: rgba(79, 70, 229, 0.1);
+            color: #e5e7eb;
+        }
+        .menu-item.active {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+        .menu-item-icon {
+            font-size: 1.1rem;
+            margin-right: 0.625rem;
+            min-width: 1.25rem;
+        }
+        .sub-menu {
+            margin-left: 0.5rem;
+            border-left: 2px solid #374151;
+            padding-left: 0.5rem;
+            margin-top: 0.25rem;
+            margin-bottom: 0.25rem;
+        }
+        .sub-menu-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0.625rem;
+            margin: 0.125rem 0;
+            border-radius: 0.25rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: #6b7280;
+            font-size: 0.75rem;
+            font-weight: 400;
+        }
+        .sub-menu-item:hover {
+            background: rgba(79, 70, 229, 0.1);
+            color: #d1d5db;
+        }
+        .sub-menu-item.active {
+            background: rgba(79, 70, 229, 0.2);
+            color: #a5b4fc;
+        }
+        .sub-menu-item-icon {
+            font-size: 0.875rem;
+            margin-right: 0.5rem;
+        }
+        .main-content {
+            margin-left: 240px;
+            flex: 1;
+            overflow-y: auto;
+            height: 100vh;
+        }
+        .content-wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .stats-bar {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border-bottom: 2px solid #4f46e5;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .stats-container {
+            display: flex;
+            gap: 2rem;
+            flex: 1;
+            justify-content: center;
+        }
+        .stat-item {
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        .stat-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            display: block;
+        }
+        .header-drop-zone {
+            border: 2px dashed #4f46e5;
+            border-radius: 0.5rem;
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: rgba(79, 70, 229, 0.05);
+        }
+        .header-drop-zone:hover {
+            border-color: #818cf8;
+            background: rgba(79, 70, 229, 0.1);
+        }
+        .header-drop-zone.drag-over {
+            border-color: #818cf8;
+            background: rgba(79, 70, 229, 0.15);
+        }
+        .gradient-border {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2px;
+            border-radius: 0.5rem;
+        }
+        .drop-zone {
+            border: 3px dashed #4f46e5;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .drop-zone.drag-over {
+            border-color: #818cf8;
+            background-color: rgba(79, 70, 229, 0.1);
+            transform: scale(1.02);
+        }
+        .trait-card {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            transition: all 0.3s ease;
+            margin-bottom: 1rem;
+        }
+        .trait-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.2);
+        }
+        .trait-card-compact {
+            padding: 1.25rem;
+        }
+        .trait-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+        .trait-title {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+        .score-badge {
+            padding: 0.375rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        .score-excellent { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .score-good { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .score-average { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+        .score-poor { background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); }
+        .snp-info {
+            background: #111827;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        .snp-info b {
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+        .snp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.25rem;
+        }
+        .gene-name {
+            color: #818cf8;
+            font-family: monospace;
+            font-size: 0.875rem;
+        }
+        .genotype {
+            color: #fbbf24;
+            font-weight: bold;
+        }
+        .recommendations {
+            background: rgba(79, 70, 229, 0.1);
+            border: 1px solid #4f46e5;
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            margin-top: 0.75rem;
+        }
+        .recommendations-title {
+            color: #818cf8;
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+        .recommendations ul {
+            margin: 0;
+            padding-left: 1.25rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+        .recommendations li {
+            margin-bottom: 0.25rem;
+            color: #d1d5db;
+        }
+        .category-section {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .category-header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+        .category-title {
+            font-size: 1.875rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .category-description {
+            color: #e5e7eb;
+            font-size: 0.875rem;
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        .mobile-menu-toggle {
+            display: none;
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.5);
+            z-index: 1000;
+            cursor: pointer;
+        }
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        .comparison-column {
+            min-width: 0;
+        }
+        .comparison-header {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            border: 2px solid #4f46e5;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .comparison-label {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .comparison-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #fff;
+            margin-top: 0.25rem;
+        }
+        @media (max-width: 1200px) {
+            .comparison-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .mobile-menu-toggle {
+                display: block;
+            }
+            .stats-bar {
+                flex-wrap: wrap;
+                gap: 1rem;
+                padding: 1rem;
+            }
+            .stats-container {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            .category-section {
+                padding: 1rem;
+            }
+        }
+        @media print {
+            .no-print, .sidebar, .stats-bar, .mobile-menu-toggle { display: none; }
+            .main-content { margin-left: 0; }
+        }
+        .evidence-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            margin-left: 0.5rem;
+        }
+        .evidence-high { background: rgba(16, 185, 129, 0.2); color: #10b981; }
+        .evidence-moderate { background: rgba(251, 191, 36, 0.2); color: #fbbf24; }
+        .evidence-low { background: rgba(249, 115, 22, 0.2); color: #f97316; }
+        .evidence-emerging { background: rgba(99, 102, 241, 0.2); color: #6366f1; }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1f2937;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #4f46e5;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #6366f1;
+        }
+        .db-status-success {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid #10b981;
+            color: #10b981;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <!-- Mobile Menu Toggle -->
+    <div class="mobile-menu-toggle no-print" id="mobile-menu-toggle">
+        📊
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <div style="font-size: 1.5rem; font-weight: bold; color: #fff;">
+                    🧬 MyDNA
+                </div>
+                <div style="font-size: 0.75rem; color: #9ca3af; margin-top: 0.25rem;">
+                    Genetická analýza
+                </div>
+            </div>
+            <div class="sidebar-menu" id="sidebar-menu">
+                <!-- Menu will be dynamically populated -->
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Database Upload Section -->
+            <div id="db-upload-section" class="content-wrapper" style="padding-top: 3rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem;">
+                        🧬 MyDNA Analýza
+                    </h1>
+                    <p style="color: #9ca3af;">
+                        Nahrajte databázi SNP a své genetické data
+                    </p>
+                </div>
+
+                <div class="gradient-border" style="margin-bottom: 2rem;">
+                    <div style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border-radius: 0.45rem; padding: 1.5rem;">
+                        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            🗂️ Načtení databáze SNP
+                        </h2>
+
+                        <div style="background: rgba(79, 70, 229, 0.1); border: 1px solid #4f46e5; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem;">
+                            <div style="font-size: 0.875rem; color: #d1d5db;">
+                                <p style="margin-bottom: 0.5rem;"><strong>Požadovaný soubor:</strong></p>
+                                <p style="margin: 0; font-size: 0.8125rem; color: #9ca3af;">
+                                    Nahrajte soubor <code style="background: rgba(0,0,0,0.3); padding: 0.125rem 0.375rem; border-radius: 0.25rem;">snp_database.json</code> s genetickou databází
+                                </p>
+                            </div>
+                        </div>
+
+                        <div id="drop-zone-db" class="drop-zone" style="padding: 2rem; text-align: center; border-radius: 0.5rem; background: #111827;">
+                            <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
+                            <div style="font-weight: 600; margin-bottom: 0.25rem;">Klikněte nebo přetáhněte databázi sem</div>
+                            <div style="font-size: 0.875rem; color: #9ca3af;">Formát: snp_database.json</div>
+                            <input type="file" id="file-input-db" accept=".json" style="display: none;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CSV Upload Section (hidden initially) -->
+            <div id="csv-upload-section" class="hidden content-wrapper" style="padding-top: 3rem;">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h1 style="font-size: 2.5rem; font-weight: bold; margin-bottom: 0.5rem;">
+                        🧬 MyDNA Analýza
+                    </h1>
+                    <p style="color: #9ca3af;">
+                        Nahrajte své DNA data pro analýzu
+                    </p>
+                </div>
+
+                <div class="gradient-border">
+                    <div style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border-radius: 0.45rem; padding: 1.5rem;">
+                        <h2 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
+                            📄 Nahrajte své DNA data
+                        </h2>
+
+                        <div style="background: rgba(79, 70, 229, 0.1); border: 1px solid #4f46e5; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1.5rem;">
+                            <div style="font-size: 0.875rem; color: #d1d5db;">
+                                <p style="margin-bottom: 0.5rem;"><strong>Podporované formáty:</strong></p>
+                                <ul style="margin: 0; padding-left: 1.25rem; font-size: 0.8125rem; color: #9ca3af;">
+                                    <li>FTDNA Family Finder CSV (RSID,CHROMOSOME,POSITION,RESULT)</li>
+                                    <li>Formát oddělený čárkami nebo tabulátory</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div id="drop-zone" class="drop-zone" style="padding: 3rem; text-align: center; border-radius: 0.5rem; background: #111827;">
+                            <div style="font-size: 3rem; margin-bottom: 1rem;">🧬</div>
+                            <div style="font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem;">Přetáhněte CSV soubor sem</div>
+                            <div style="color: #9ca3af; margin-bottom: 1.5rem;">nebo klikněte pro výběr souboru</div>
+                            <div style="display: inline-block; padding: 0.75rem 1.5rem; background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); border-radius: 0.5rem; font-weight: 600; cursor: pointer;">
+                                Vybrat soubor
+                            </div>
+                            <input type="file" id="file-input" accept=".csv,.txt" style="display: none;">
+                        </div>
+
+                        <div id="processing" class="hidden" style="margin-top: 2rem;">
+                            <div style="background: #111827; border-radius: 0.5rem; padding: 1.5rem;">
+                                <div id="progress-text" style="text-align: center; margin-bottom: 1rem; font-weight: 600;">
+                                    Načítám soubor...
+                                </div>
+                                <div style="background: #1f2937; border-radius: 9999px; height: 0.5rem; overflow: hidden;">
+                                    <div id="progress-bar" class="progress-bar" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); height: 100%; width: 0%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section (hidden initially) -->
+            <div id="results-section" class="hidden">
+                <!-- Stats Bar with Comparison Upload -->
+                <div class="stats-bar no-print">
+                    <div class="stats-container">
+                        <div class="stat-item">
+                            <span class="stat-value" id="total-markers" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">-</span>
+                            <span class="stat-label">Celkem markerů</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="searched-markers" style="background: linear-gradient(135deg, #4f46e5, #7c3aed); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">-</span>
+                            <span class="stat-label">Hledáno v databázi</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="found-markers" style="background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">-</span>
+                            <span class="stat-label">Nalezeno</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="match-percent" style="background: linear-gradient(135deg, #10b981, #059669); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">-</span>
+                            <span class="stat-label">Shoda</span>
+                        </div>
+                    </div>
+
+                    <!-- Comparison Upload Area -->
+                    <div id="comparison-upload-container" class="header-drop-zone" style="min-width: 200px;">
+                        <div style="font-size: 0.75rem; color: #9ca3af; margin-bottom: 0.25rem;">Porovnat s druhým testem</div>
+                        <div style="font-size: 0.875rem; font-weight: 600; color: #a5b4fc;">📊 Nahrát test B</div>
+                        <input type="file" id="file-input-comparison" accept=".csv,.txt" style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Results Container -->
+                <div id="results-container"></div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // =====================================================
+        // GLOBAL STATE
+        // =====================================================
+        let SNP_DATABASE = null;
+        let userData = null;
+        let userDataB = null;
+        let userResults = {};
+        let userResultsB = {};
+        let comparisonMode = false;
+
+        // Constants for scoring
+        const SCORE_POINTS = {
+            'excellent': 2,
+            'good': 1,
+            'average': 0,
+            'neutral': 1,
+            'poor': 0,
+            'risk': 0
+        };
+
+        const EVIDENCE_WEIGHT = {
+            'high': 1.0,
+            'moderate': 0.7,
+            'low': 0.4,
+            'emerging': 0.25
+        };
+
+        // =====================================================
+        // DATABASE LOADING
+        // =====================================================
+
+        function handleDbFile(file) {
+            const reader = new FileReader();
+
+            reader.onload = (e) => {
+                try {
+                    const json = JSON.parse(e.target.result);
+                    if (!json || typeof json !== "object") throw new Error("Invalid JSON");
+
+                    SNP_DATABASE = json;
+
+                    // Hide database section, show CSV upload section
+                    document.getElementById('db-upload-section').classList.add('hidden');
+                    document.getElementById('csv-upload-section').classList.remove('hidden');
+
+                    buildSidebar();
+                } catch (err) {
+                    alert("Chyba při načítání databáze: " + err.message);
+                }
+            };
+
+            reader.readAsText(file);
+        }
+
+        // =====================================================
+        // FILE UPLOAD HANDLERS
+        // =====================================================
+
+        // Database file upload
+        const dropZoneDb = document.getElementById('drop-zone-db');
+        const fileInputDb = document.getElementById('file-input-db');
+
+        dropZoneDb.addEventListener('click', () => fileInputDb.click());
+
+        dropZoneDb.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZoneDb.classList.add('drag-over');
+        });
+
+        dropZoneDb.addEventListener('dragleave', () => {
+            dropZoneDb.classList.remove('drag-over');
+        });
+
+        dropZoneDb.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZoneDb.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file) handleDbFile(file);
+        });
+
+        fileInputDb.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleDbFile(file);
+        });
+
+        // CSV file upload (Test A)
+        const dropZone = document.getElementById('drop-zone');
+        const fileInput = document.getElementById('file-input');
+
+        dropZone.addEventListener('click', () => fileInput.click());
+
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.classList.add('drag-over');
+        });
+
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.classList.remove('drag-over');
+        });
+
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file) handleCsvFile(file, false);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleCsvFile(file, false);
+        });
+
+        // Comparison file upload (Test B)
+        const comparisonContainer = document.getElementById('comparison-upload-container');
+        const fileInputComparison = document.getElementById('file-input-comparison');
+
+        comparisonContainer.addEventListener('click', () => fileInputComparison.click());
+
+        comparisonContainer.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            comparisonContainer.classList.add('drag-over');
+        });
+
+        comparisonContainer.addEventListener('dragleave', () => {
+            comparisonContainer.classList.remove('drag-over');
+        });
+
+        comparisonContainer.addEventListener('drop', (e) => {
+            e.preventDefault();
+            comparisonContainer.classList.remove('drag-over');
+            const file = e.dataTransfer.files[0];
+            if (file) handleCsvFile(file, true);
+        });
+
+        fileInputComparison.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) handleCsvFile(file, true);
+        });
+
+        function handleCsvFile(file, isComparison) {
+            if (!SNP_DATABASE) {
+                alert('Nejprve nahrajte databázi SNP!');
+                return;
+            }
+
+            const reader = new FileReader();
+            if (!isComparison) {
+                document.getElementById('processing').classList.remove('hidden');
+            }
+
+            reader.onload = (e) => {
+                const content = e.target.result;
+                parseAndAnalyze(content, isComparison, file.name);
+            };
+
+            reader.readAsText(file);
+        }
+
+        // =====================================================
+        // CSV PARSING & NORMALIZATION
+        // =====================================================
+
+        function normalizeRsid(rsid) {
+            return String(rsid).trim().toLowerCase();
+        }
+
+        function normalizeGenotype(gt) {
+            if (!gt) return "";
+            const clean = String(gt).toUpperCase().replace(/[^ACGT]/g, "");
+            if (clean.length !== 2) return clean;
+            return clean.split("").sort().join("");
+        }
+
+        function parseFTDNACsv(text, onProgress) {
+            const lines = text.split(/\r?\n/);
+            const map = new Map();
+            const total = lines.length;
+            let processed = 0;
+
+            for (let i = 0; i < lines.length; i++) {
+                let line = lines[i].trim();
+                if (!line || line.startsWith("#")) continue;
+
+                let parts = line.includes(",") ? line.split(",") : line.split(/\t+/);
+
+                if (parts[0]?.toUpperCase() === "RSID") continue;
+                if (parts.length < 4) continue;
+
+                const rsid = normalizeRsid(parts[0]);
+                const result = normalizeGenotype(parts[3]);
+
+                if (rsid && result) {
+                    map.set(rsid, result);
+                }
+
+                processed++;
+                if (onProgress && processed % 5000 === 0) {
+                    onProgress(Math.min(100, Math.round((i / total) * 100)));
+                }
+            }
+
+            if (onProgress) onProgress(100);
+            return map;
+        }
+
+        // =====================================================
+        // ANALYSIS
+        // =====================================================
+
+        function updateProgress(percent, text) {
+            document.getElementById('progress-bar').style.width = percent + '%';
+            document.getElementById('progress-text').textContent = text;
+        }
+
+        function parseAndAnalyze(csvContent, isComparison, fileName) {
+            if (!isComparison) {
+                updateProgress(10, 'Načítám soubor...');
+                updateProgress(30, 'Parsuji DNA data...');
+            }
+
+            const parsedData = parseFTDNACsv(csvContent, (progress) => {
+                if (!isComparison) {
+                    updateProgress(30 + (progress * 0.3), 'Parsuji DNA data... ' + progress + '%');
+                }
+            });
+
+            if (isComparison) {
+                userDataB = parsedData;
+                comparisonMode = true;
+
+                // Update comparison UI
+                comparisonContainer.innerHTML = `
+                    <div style="font-size: 0.75rem; color: #10b981; margin-bottom: 0.25rem;">✓ Test B načten</div>
+                    <div style="font-size: 0.875rem; font-weight: 600; color: #10b981;">${fileName}</div>
+                    <div style="font-size: 0.625rem; color: #9ca3af; margin-top: 0.25rem; cursor: pointer;" onclick="clearComparison()">Klikněte pro změnu</div>
+                `;
+
+                analyzeGenetics();
+                renderResults();
+                // Re-initialize scroll spy after rendering
+                setTimeout(() => {
+                    initScrollSpy();
+                }, 100);
+            } else {
+                userData = parsedData;
+
+                updateProgress(60, 'Analyzuji genetiku...');
+
+                setTimeout(() => {
+                    analyzeGenetics();
+                    updateProgress(100, 'Hotovo!');
+
+                    setTimeout(() => {
+                        showResults();
+                        // Initialize scroll spy after showing results
+                        setTimeout(() => {
+                            initScrollSpy();
+                        }, 100);
+                    }, 500);
+                }, 500);
+            }
+        }
+
+        function clearComparison() {
+            userDataB = null;
+            userResultsB = {};
+            comparisonMode = false;
+
+            comparisonContainer.innerHTML = `
+                <div style="font-size: 0.75rem; color: #9ca3af; margin-bottom: 0.25rem;">Porovnat s druhým testem</div>
+                <div style="font-size: 0.875rem; font-weight: 600; color: #a5b4fc;">📊 Nahrát test B</div>
+            `;
+
+            renderResults();
+            // Re-initialize scroll spy after rendering
+            setTimeout(() => {
+                initScrollSpy();
+            }, 100);
+        }
+
+        function getAlleleEntry(snpObj, userGt) {
+            if (!snpObj || !snpObj.alleles) return null;
+
+            const ngt = normalizeGenotype(userGt);
+            const normMap = new Map();
+
+            for (const key of Object.keys(snpObj.alleles)) {
+                normMap.set(normalizeGenotype(key), snpObj.alleles[key]);
+            }
+
+            return normMap.get(ngt) || null;
+        }
+
+        function computeTraitScore(trait, snpsMap) {
+            const snps = trait.snps || {};
+            const perSnp = [];
+            let found = 0;
+
+            let weights = [];
+            if (trait.combined_score_model?.score_weights?.length) {
+                weights = trait.combined_score_model.score_weights.map(w => ({
+                    rsid: normalizeRsid(w.rsid),
+                    weight: Number(w.weight ?? EVIDENCE_WEIGHT[w.evidence] ?? 0.7),
+                    evidence: w.evidence ?? "moderate"
+                }));
+            } else {
+                weights = Object.keys(snps).map(rsid => {
+                    const ev = snps[rsid].evidence || trait.evidence || "moderate";
+                    return {
+                        rsid: normalizeRsid(rsid),
+                        weight: EVIDENCE_WEIGHT[ev] ?? 0.7,
+                        evidence: ev
+                    };
+                });
+            }
+
+            let obtained = 0, maxPossible = 0;
+
+            for (const w of weights) {
+                const rsid = w.rsid;
+                const snpObj = snps[rsid];
+                const gt = snpsMap?.get(rsid);
+                maxPossible += w.weight * 2;
+
+                if (gt) {
+                    found++;
+                    const allele = getAlleleEntry(snpObj, gt);
+                    const score = allele?.score || "average";
+                    const points = SCORE_POINTS[score] ?? 0;
+                    obtained += w.weight * points;
+
+                    perSnp.push({
+                        rsid: rsid,
+                        gene: snpObj.gene || "",
+                        genotype: gt,
+                        score: score,
+                        description: allele?.description || "Genotyp v databázi nemá specifický popis.",
+                        evidence: snpObj.evidence || trait.evidence || "moderate"
+                    });
+                } else {
+                    perSnp.push({
+                        rsid: rsid,
+                        gene: snpObj.gene || "",
+                        genotype: null,
+                        score: null,
+                        description: "SNP nebyl v nahraném souboru nalezen.",
+                        evidence: snpObj?.evidence || trait.evidence || "moderate"
+                    });
+                }
+            }
+
+            const combinedPercent = maxPossible > 0 ? Math.round((obtained / maxPossible) * 100) : null;
+            const coveragePercent = weights.length ? Math.round((found / weights.length) * 100) : 0;
+
+            let overallScore = 'average';
+            if (combinedPercent !== null) {
+                if (combinedPercent >= 75) overallScore = 'excellent';
+                else if (combinedPercent >= 50) overallScore = 'good';
+                else if (combinedPercent >= 25) overallScore = 'average';
+                else overallScore = 'poor';
+            }
+
+            return {
+                combinedPercent,
+                coveragePercent,
+                found,
+                total: weights.length,
+                perSnp,
+                overallScore
+            };
+        }
+
+        function analyzeGenetics() {
+            userResults = {};
+            userResultsB = {};
+            let totalSearched = 0;
+            let totalFound = 0;
+
+            for (const [categoryId, category] of Object.entries(SNP_DATABASE)) {
+                userResults[categoryId] = {};
+                if (comparisonMode) userResultsB[categoryId] = {};
+
+                for (const [traitId, trait] of Object.entries(category.traits)) {
+                    const result = computeTraitScore(trait, userData);
+
+                    totalSearched += result.total;
+                    totalFound += result.found;
+
+                    if (result.found > 0) {
+                        userResults[categoryId][traitId] = {
+                            name: trait.name,
+                            icon: trait.icon,
+                            score: result.overallScore,
+                            combinedPercent: result.combinedPercent,
+                            coveragePercent: result.coveragePercent,
+                            snps: result.perSnp,
+                            recommendations: trait.recommendations,
+                            evidence: trait.evidence
+                        };
+                    }
+
+                    if (comparisonMode && userDataB) {
+                        const resultB = computeTraitScore(trait, userDataB);
+                        if (resultB.found > 0) {
+                            userResultsB[categoryId][traitId] = {
+                                name: trait.name,
+                                icon: trait.icon,
+                                score: resultB.overallScore,
+                                combinedPercent: resultB.combinedPercent,
+                                coveragePercent: resultB.coveragePercent,
+                                snps: resultB.perSnp,
+                                recommendations: trait.recommendations,
+                                evidence: trait.evidence
+                            };
+                        }
+                    }
+                }
+            }
+
+            document.getElementById('total-markers').textContent = userData.size.toLocaleString();
+            document.getElementById('searched-markers').textContent = totalSearched;
+            document.getElementById('found-markers').textContent = totalFound;
+            document.getElementById('match-percent').textContent =
+                Math.round((totalFound / totalSearched) * 100) + '%';
+        }
+
+        // =====================================================
+        // RENDERING
+        // =====================================================
+
+        function showResults() {
+            document.getElementById('csv-upload-section').classList.add('hidden');
+            document.getElementById('results-section').classList.remove('hidden');
+            buildSidebar();
+            renderResults();
+        }
+
+        function buildSidebar() {
+            const menu = document.getElementById('sidebar-menu');
+            menu.innerHTML = '';
+
+            if (!SNP_DATABASE) return;
+
+            for (const [categoryId, category] of Object.entries(SNP_DATABASE)) {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'menu-item';
+                menuItem.innerHTML = `
+                    <span class="menu-item-icon">${category.icon}</span>
+                    <span>${category.name}</span>
+                `;
+                menuItem.onclick = () => {
+                    document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+                    document.querySelectorAll('.sub-menu-item').forEach(item => item.classList.remove('active'));
+                    menuItem.classList.add('active');
+                    document.getElementById('category-' + categoryId)?.scrollIntoView({ behavior: 'smooth' });
+                };
+                menu.appendChild(menuItem);
+
+                const subMenu = document.createElement('div');
+                subMenu.className = 'sub-menu';
+
+                for (const [traitId, trait] of Object.entries(category.traits)) {
+                    const subMenuItem = document.createElement('div');
+                    subMenuItem.className = 'sub-menu-item';
+                    subMenuItem.innerHTML = `
+                        <span class="sub-menu-item-icon">${trait.icon}</span>
+                        <span>${trait.name}</span>
+                    `;
+                    subMenuItem.onclick = (e) => {
+                        e.stopPropagation();
+                        document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+                        document.querySelectorAll('.sub-menu-item').forEach(item => item.classList.remove('active'));
+                        subMenuItem.classList.add('active');
+                        document.getElementById('trait-' + categoryId + '-' + traitId)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    };
+                    subMenu.appendChild(subMenuItem);
+                }
+
+                menu.appendChild(subMenu);
+            }
+        }
+
+        function renderResults() {
+            const container = document.getElementById('results-container');
+            container.innerHTML = '';
+
+            for (const [categoryId, category] of Object.entries(SNP_DATABASE)) {
+                const categoryResults = userResults[categoryId];
+                if (!categoryResults || Object.keys(categoryResults).length === 0) continue;
+
+                const categorySection = document.createElement('div');
+                categorySection.id = 'category-' + categoryId;
+                categorySection.className = 'category-section';
+                categorySection.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-title">${category.icon} ${category.name}</div>
+                        <div class="category-description">${category.description}</div>
+                    </div>
+                    <div id="traits-${categoryId}"></div>
+                `;
+
+                container.appendChild(categorySection);
+
+                const traitsContainer = document.getElementById('traits-' + categoryId);
+
+                for (const [traitId, traitResult] of Object.entries(categoryResults)) {
+                    const traitResultB = comparisonMode && userResultsB[categoryId] ? userResultsB[categoryId][traitId] : null;
+                    const traitCard = createTraitCard(traitResult, categoryId, traitId, traitResultB);
+                    traitsContainer.appendChild(traitCard);
+                }
+            }
+        }
+
+        function createTraitCard(trait, categoryId, traitId, traitB = null) {
+            const card = document.createElement('div');
+            card.className = 'trait-card trait-card-compact rounded-lg shadow-lg';
+            card.id = 'trait-' + categoryId + '-' + traitId;
+
+            const scoreLabels = {
+                'excellent': 'Výborný',
+                'good': 'Dobrý',
+                'average': 'Průměrný',
+                'poor': 'Slabý'
+            };
+
+            const evidenceLabels = {
+                'high': '🟢',
+                'moderate': '🟡',
+                'low': '🟠',
+                'emerging': '🔵'
+            };
+
+            if (comparisonMode && traitB) {
+                // Comparison mode - side by side
+                card.innerHTML = `
+                    <div class="trait-header">
+                        <div class="trait-title">
+                            <span style="font-size: 1.5rem;">${trait.icon}</span>
+                            <span>${trait.name}</span>
+                            <span class="evidence-badge evidence-${trait.evidence || 'moderate'}">
+                                ${evidenceLabels[trait.evidence || 'moderate']} ${trait.evidence || 'moderate'}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="comparison-grid">
+                        <div class="comparison-column">
+                            <div class="comparison-header">
+                                <div class="comparison-label">Test A</div>
+                                <div class="score-badge score-${trait.score}">
+                                    ${scoreLabels[trait.score]}
+                                    ${trait.combinedPercent !== null ? ` (${trait.combinedPercent}%)` : ''}
+                                </div>
+                            </div>
+                            ${createSnpsHtml(trait.snps)}
+                        </div>
+
+                        <div class="comparison-column">
+                            <div class="comparison-header">
+                                <div class="comparison-label">Test B</div>
+                                <div class="score-badge score-${traitB.score}">
+                                    ${scoreLabels[traitB.score]}
+                                    ${traitB.combinedPercent !== null ? ` (${traitB.combinedPercent}%)` : ''}
+                                </div>
+                            </div>
+                            ${createSnpsHtml(traitB.snps)}
+                        </div>
+                    </div>
+
+                    ${createRecommendationsHtml(trait.recommendations)}
+                `;
+            } else {
+                // Single mode
+                card.innerHTML = `
+                    <div class="trait-header">
+                        <div class="trait-title">
+                            <span style="font-size: 1.5rem;">${trait.icon}</span>
+                            <span>${trait.name}</span>
+                            <span class="evidence-badge evidence-${trait.evidence || 'moderate'}">
+                                ${evidenceLabels[trait.evidence || 'moderate']} ${trait.evidence || 'moderate'}
+                            </span>
+                        </div>
+                        <div class="score-badge score-${trait.score}">
+                            ${scoreLabels[trait.score]}
+                            ${trait.combinedPercent !== null ? ` (${trait.combinedPercent}%)` : ''}
+                        </div>
+                    </div>
+
+                    <div style="font-size: 0.875rem; color: #9ca3af; margin-bottom: 1rem;">
+                        Pokrytí: ${trait.coveragePercent}% SNPs nalezeno
+                    </div>
+
+                    ${createSnpsHtml(trait.snps)}
+                    ${createRecommendationsHtml(trait.recommendations)}
+                `;
+            }
+
+            return card;
+        }
+
+        function createSnpsHtml(snps) {
+            let html = '';
+            for (const snp of snps) {
+                if (snp.genotype) {
+                    html += `
+                        <div class="snp-info">
+                            <div class="snp-header">
+                                <span class="gene-name">${snp.gene} (${snp.rsid})</span>
+                                <span class="genotype">${snp.genotype}</span>
+                            </div>
+                            <div style="color: #d1d5db; margin-top: 0.5rem;">
+                                ${snp.description}
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            return html;
+        }
+
+        function createRecommendationsHtml(recommendations) {
+            if (!recommendations || recommendations.length === 0) return '';
+
+            return `
+                <div class="recommendations">
+                    <div class="recommendations-title">💡 Doporučení</div>
+                    <ul>
+                        ${recommendations.map(rec => `<li>${rec}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+        }
+
+        // =====================================================
+        // SCROLL SPY - AUTO ACTIVATE MENU ON SCROLL
+        // =====================================================
+
+        let scrollSpyObserver = null;
+
+        function initScrollSpy() {
+            // Disconnect previous observer if exists
+            if (scrollSpyObserver) {
+                scrollSpyObserver.disconnect();
+            }
+
+            const options = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px', // Trigger when element is in middle of viewport
+                threshold: 0
+            };
+
+            scrollSpyObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+
+                        // Check if it's a trait (format: trait-categoryId-traitId)
+                        if (id.startsWith('trait-')) {
+                            const parts = id.split('-');
+                            if (parts.length >= 3) {
+                                const categoryId = parts[1];
+                                const traitId = parts.slice(2).join('-');
+
+                                // Deactivate all menu items
+                                document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+                                document.querySelectorAll('.sub-menu-item').forEach(item => item.classList.remove('active'));
+
+                                // Activate the specific trait
+                                const subMenuItems = document.querySelectorAll('.sub-menu-item');
+                                subMenuItems.forEach(item => {
+                                    const itemText = item.querySelector('span:last-child')?.textContent;
+                                    const traitName = SNP_DATABASE?.[categoryId]?.traits?.[traitId]?.name;
+                                    if (itemText === traitName) {
+                                        item.classList.add('active');
+                                    }
+                                });
+                            }
+                        }
+                        // Check if it's a category (format: category-categoryId)
+                        else if (id.startsWith('category-')) {
+                            const categoryId = id.replace('category-', '');
+
+                            // Deactivate all items
+                            document.querySelectorAll('.menu-item').forEach(item => item.classList.remove('active'));
+                            document.querySelectorAll('.sub-menu-item').forEach(item => item.classList.remove('active'));
+
+                            // Activate the category
+                            const menuItems = document.querySelectorAll('.menu-item');
+                            menuItems.forEach(item => {
+                                const itemText = item.querySelector('span:last-child')?.textContent;
+                                const categoryName = SNP_DATABASE?.[categoryId]?.name;
+                                if (itemText === categoryName) {
+                                    item.classList.add('active');
+                                }
+                            });
+                        }
+                    }
+                });
+            }, options);
+
+            // Observe all category and trait elements
+            const categories = document.querySelectorAll('[id^="category-"]');
+            const traits = document.querySelectorAll('[id^="trait-"]');
+
+            categories.forEach(el => scrollSpyObserver.observe(el));
+            traits.forEach(el => scrollSpyObserver.observe(el));
+        }
+
+        // =====================================================
+        // MOBILE MENU
+        // =====================================================
+
+        document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
+            document.getElementById('sidebar').classList.toggle('mobile-open');
+        });
+    </script>
+</body>
+</html>

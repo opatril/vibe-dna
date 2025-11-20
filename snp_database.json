@@ -1,0 +1,2383 @@
+{
+  "nutrition": {
+    "name": "Výživa",
+    "icon": "🍎",
+    "description": "DNA profil pro řízení váhy",
+    "traits": {
+      "fat_burning": {
+        "name": "Spalování tuků a váha",
+        "icon": "🔥",
+        "snps": {
+          "rs2241766": {
+            "gene": "ADIPOQ",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Geneticky mírně výhodnější schopnost spalování tuků. Vaše tělo efektivně využívá tuky jako zdroj energie. Máte genetickou výhodu při udržování zdravé váhy."
+              },
+              "TG": {
+                "score": "good",
+                "description": "Spíš příznivá schopnost spalování tuků. Vaše metabolismus tuků funguje efektivně, zejména při pravidelné fyzické aktivitě."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Průměrná schopnost spalování tuků. Pro optimální metabolismus tuků je důležitá pravidelná fyzická aktivita a vyvážená strava."
+              }
+            },
+            "evidence": "moderate"
+          },
+          "rs1501299": {
+            "gene": "ADIPOQ",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Vynikající produkce adiponektinu, hormonu podporujícího spalování tuků a citlivost na inzulín."
+              },
+              "GT": {
+                "score": "good",
+                "description": "Spíš příznivá úroveň adiponektinu. Pravidelný pohyb a zdravá strava optimalizují vaši metabolickou funkci."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Průměrná úroveň adiponektinu. Zaměřte se na pravidelnou fyzickou aktivitu a protizánětlivou stravu."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Zařaďte pravidelný pohyb 3–5× týdně – kombinace silového tréninku a svižné chůze/HIIT zvyšuje využití tuků.",
+          "Dbejte na dostatek bílkovin v každém jídle (pomáhá sytosti a ochraně svalů při hubnutí).",
+          "Omezte ultrazpracované potraviny a přidaný cukr; preferujte celistvé potraviny s vlákninou.",
+          "Spánek a stres mají velký vliv na ukládání/ spalování energie – snažte se o pravidelný spánek.",
+          "Genetický vliv je malý: výsledky nejvíc ovlivní dlouhodobé návyky."
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs2241766",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs1501299",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "fat_storage": {
+        "name": "Ukládání tuků",
+        "icon": "📦",
+        "snps": {
+          "rs1801282": {
+            "gene": "PPARG",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Spíše nižší genetická tendence ukládat tuky. Tato varianta bývá spojována s o něco příznivějším metabolismem tuků a inzulínu. Efekt je ale malý."
+              },
+              "CG": {
+                "score": "good",
+                "description": "Lehce zvýšená tendence ukládat energii do zásob. Pomáhá pravidelný pohyb a hlídání příjmu kalorií."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Mírně zvýšená náchylnost ke zvyšování hmotnosti při nadbytku kalorií. Neznamená to, že zkuste přibrat – jen se vám vyplatí držet konzistentní režim."
+              }
+            }
+          }
+        },
+        "recommendations": [
+          "Sledujte velikost porcí a celkový kalorický příjem",
+          "Posilování pro zvýšení svalové hmoty a metabolismu",
+          "Vyhněte se velkým jídlům před spaním",
+          "Konzumujte více vlákniny pro lepší sytost"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1801282",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "body_size": {
+        "name": "Tělesná velikost a zpětný nárůst váhy",
+        "icon": "⚖️",
+        "snps": {
+          "rs1885988": {
+            "gene": "MTIF3",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Mírně snížené genetické riziko zpětného nárůstu váhy po hubnutí. Vaše tělo snáze udržuje dosaženou váhu."
+              },
+              "TG": {
+                "score": "good",
+                "description": "Průměrné riziko zpětného nárůstu váhy. Postupné změny životního stylu pomáhají udržet výsledky."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Vyšší riziko zpětného nárůstu váhy (jo-jo efekt). Zaměřte se na dlouhodobé udržitelné změny, ne krátkodobé diety."
+              }
+            },
+            "population_frequency_eur": {
+              "major/major": "≈53 %",
+              "heterozygot": "≈39 %",
+              "minor/minor": "≈7 %",
+              "note": "Evropská frekvence pro tento SNP není spolehlivě dostupná; toto je orientační globální odhad z MAF ~27 %."
+            }
+          }
+        },
+        "recommendations": [
+          "Hubněte pomalu (0,5-1 kg týdně) pro dlouhodobé výsledky",
+          "Zaměřte se na trvalé změny stravovacích návyků",
+          "Pravidelné vážení pro včasnou detekci změn",
+          "Udržujte fyzickou aktivitu i po dosažení cílové váhy"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1885988",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "appetite": {
+        "name": "Chuť k jídlu a váha",
+        "icon": "🍽️",
+        "snps": {
+          "rs1137101": {
+            "gene": "LEPR",
+            "alleles": {
+              "AA": {
+                "score": "good",
+                "description": "Varianta spojená spíš s normální citlivostí leptinového receptoru. Chuť k jídlu bývá v průměru dobře regulovaná, rozhodující je hlavně prostředí (spánek, stres, typ jídel)."
+              },
+              "AG": {
+                "score": "average",
+                "description": "Mírně změněná signalizace leptinu – u části lidí se může projevit větší sklon k přejídání, hlavně při vysoce kalorických a ultra-zpracovaných jídlech. Efekt je malý a výrazně ovlivnitelný návyky."
+              },
+              "GG": {
+                "score": "caution",
+                "description": "Kombinace spojená v některých studiích s vyšším BMI a horší regulací chuti k jídlu. Neznamená to osud, ale může být větší zisk z důsledné práce s prostředím: bílkoviny, vláknina, pevný režim, omezení snacků „po ruce“."
+              }
+            },
+            "evidence": "moderate"
+          },
+          "rs9939609": {
+            "gene": "FTO",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "🧬 <b>Co tento gen dělá:</b> FTO ovlivňuje regulaci apetitu a energetické rovnováhy v hypotalamu. U rs9939609 je alela <b>A</b> spojena se zvýšeným rizikem vyššího příjmu energie a BMI, ale efekt je malý a silně ovlivnitelný životním stylem.\n\n📊 <b>Genotyp TT:</b> nemáte „rizikovou“ A alelu. Nejnižší genetická tendence k vyšší chuti k jídlu. V populaci Evropy je TT přibližně u 30–40 % lidí.\n\n✅ <b>Výhody:</b>\n• Normální pocit sytosti  \n• Snazší kontrola porcí a příjmu energie  \n• Nižší genetické riziko obezity (baseline)\n\n❌ <b>Nevýhody:</b>\n• Žádné významné."
+              },
+              "TA": {
+                "score": "good",
+                "description": "🧬 <b>Genotyp TA (AT):</b> jedna riziková A alela = mírně zvýšená chuť k jídlu a malé zvýšení rizika vyššího BMI (typicky ~10–20 %). Je to běžná varianta.\n\n✅ <b>Výhody:</b>\n• Při vědomém přístupu ke stravě můžete bez problémů udržet zdravou váhu.\n\n❌ <b>Nevýhody:</b>\n• Mírně slabší signál sytosti, hlavně při stresu nebo nedostatku spánku  \n• Vyplatí se hlídat velikost porcí a kvalitu jídel."
+              },
+              "AA": {
+                "score": "average",
+                "description": "🧬 <b>Genotyp AA:</b> dvě rizikové A alely. Průměrně vyšší tendence k energetickému příjmu a vyšší BMI (často uváděno ~20–30 % zvýšení rizika obezity oproti TT). Většina nositelů ale při dobrém životním stylu obezitu většinou ne nemá.\n\n✅ <b>Výhody:</b>\n• Není to „osud“ – pravidelný pohyb a bílkoviny/vláknina umí efekt výrazně potlačit.\n\n❌ <b>Nevýhody:</b>\n• Silnější chuť na energeticky bohatá jídla  \n• Pomalejší nástup sytosti po jídle  \n• Vyšší citlivost na spánek a stres z hlediska přejídání\n\n💡 <b>Jak s tím pracovat:</b> nejvíc pomáhá vyšší příjem bílkovin a vlákniny, pravidelný pohyb a spánková rutina."
+              }
+            },
+            "population_frequency_eur": {
+              "TT": "≈36 %",
+              "AT": "≈48 %",
+              "AA": "≈16 %",
+              "note": "Odhad pro Evropu; v jiných populacích může být A alela vyšší/nižší."
+            }
+          },
+          "rs17782313": {
+            "gene": "MC4R",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Běžná varianta. Genotyp TT bývá spojen s o něco nižší tendencí k přejídání a snazší regulací váhy. Tělo obvykle dobře reaguje na standardní režim jídla a pohybu."
+              },
+              "TC": {
+                "score": "average",
+                "description": "Střední citlivost na signály hladu/sytosti. U části lidí se projevuje větší chuť k jídlu nebo slabší pocit sytosti – hlavně v přítomnosti sladkého a vysoce zpracovaného jídla."
+              },
+              "CC": {
+                "score": "caution",
+                "description": "Varianta spojená s vyšším rizikem přibírání a výraznější chutí k jídlu. Neznamená to osud, ale vyplatí se hlídat prostředí (porce, bílkoviny, vláknina, spánek)."
+              }
+            },
+            "evidence": "high",
+            "population_frequency_eur": {
+              "minor_allele_frequency": 0.24,
+              "note": "C (minor) allele ~24% v populacích evropského původu; genotypy se liší napříč Evropou. Odhad dle 1000G/evropských kohort."
+            }
+          },
+          "rs6265": {
+            "gene": "BDNF",
+            "alleles": {
+              "CC": {
+                "score": "good",
+                "description": "Typická varianta. BDNF může mít standardní vliv na regulaci chuti a odměňovací systém."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Některé studie spojují T alelu s vyšší citlivostí na stresové jedením nebo emoční chutě. Efekt je malý, ale může se projevit při horším spánku/stresu."
+              },
+              "TT": {
+                "score": "caution",
+                "description": "Vzácnější kombinace s tendencí k vyšší emoční chuti a horší regulaci sytosti v zátěži. Největší zisk mívá práce se stresem a pravidelný režim."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Jezte pravidelně (5-6 menších jídel denně) pro stabilní hladinu cukru",
+          "Zvyšte příjem bílkovin a vlákniny pro lepší pocit sytosti",
+          "Pijte vodu před jídlem",
+          "Praktikujte mindful eating - jezte pomalu a vědomě",
+          "Spěte dostatečně (7-9 hodin) - nedostatek spánku zvyšuje hlad"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs9939609",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "fitness": {
+    "name": "Fitness",
+    "icon": "💪",
+    "description": "DNA tréninkové profily",
+    "traits": {
+      "power_endurance": {
+        "name": "Síla vs. vytrvalost",
+        "icon": "🏃",
+        "snps": {
+          "rs1042713": {
+            "gene": "ADRB2",
+            "alleles": {
+              "GG": {
+                "score": "good",
+                "description": "Varianta často spojovaná s o něco lepší lipolýzou a reakcí na aerobní trénink u části lidí. Může mírně pomáhat při redukci tuku, pokud je přítomen pravidelný pohyb."
+              },
+              "AG": {
+                "score": "average",
+                "description": "Smíšený profil. Reakce na trénink (síla vs. vytrvalost) je hlavně o programu a objemu – genetický efekt je spíš jemné doladění."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Běžná varianta. Některé studie naznačují o něco horší odpověď na redukční režimy, ale rozdíly jsou malé. Pro výkon i kompozici těla je rozhodující strava, spánek a systematický trénink."
+              }
+            },
+            "evidence": "low"
+          },
+          "rs1042714": {
+            "gene": "ADRB2",
+            "alleles": {
+              "CC": {
+                "score": "good",
+                "description": "Často spojeno s mírně příznivějším metabolickým profilem a odpovědí na vytrvalostní zátěž. V praxi to ale bez tréninku samo o sobě nic neudělá."
+              },
+              "CG": {
+                "score": "average",
+                "description": "Střední profil mezi silou a vytrvalostí. Při vhodném tréninku se dá dobře adaptovat jak na silovější, tak vytrvalostní protokoly."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Varianta s mírně odlišnou aktivitou β2-adrenergního receptoru. Vliv na výkon a kompozici těla je malý; rozhoduje typ a konzistence tréninku."
+              }
+            },
+            "evidence": "low"
+          },
+          "rs1815739": {
+            "gene": "ACTN3",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "🧬 <b>Co tento gen dělá:</b> ACTN3 (R577X, rs1815739) ovlivňuje přítomnost proteinu α‑actinin‑3 v rychlých svalových vláknech. Alelu <b>C</b> lze chápat jako „R“ (funkční), alelu <b>T</b> jako „X“ (nefunkční).\n\n📊 <b>Genotyp CC (RR):</b> máte plně funkční α‑actinin‑3 ve všech rychlých vláknech. V evropské populaci je tento genotyp zhruba u 30–40 % lidí.\n\n✅ <b>Výhody:</b>\n• Lepší výbušná síla a rychlost (sprint, skoky, silové sporty)  \n• Spíš příznivá odpověď na silový trénink a HIIT  \n• Rychlá maximální kontrakce svalů\n\n❌ <b>Nevýhody:</b>\n• Mírně horší ekonomika dlouhého vytrvalostního výkonu než u TT (rozdíly jsou ale malé)\n\n💡 <b>Poznámka:</b> Efekt je reálný, ale <i>malý</i> – trénink a životní styl mají mnohem větší váhu."
+              },
+              "CT": {
+                "score": "good",
+                "description": "🧬 <b>CT (RX) = smíšený profil:</b> máte jednu funkční a jednu nefunkční alelu. Nejčastější varianta v Evropě (~45–55 %).\n\n✅ <b>Výhody:</b>\n• Vyvážený poměr síly i vytrvalosti  \n• Velká adaptabilita na různé typy tréninku  \n• Často výhodné pro „kombinované“ sporty (fotbal, hokej, CrossFit)\n\n❌ <b>Nevýhody:</b>\n• V extrémně specializovaných disciplínách nezkuste mít maximální genetickou výhodu."
+              },
+              "TT": {
+                "score": "good",
+                "description": "🧬 <b>TT (XX) = absence α‑actinin‑3:</b> v rychlých vláknech chybí α‑actinin‑3 („gene knockout“). V Evropě asi 15–20 % lidí.\n\n✅ <b>Výhody:</b>\n• O něco lepší vytrvalostní profil (maraton, triatlon, cyklistika)  \n• Lepší oxidace tuků při dlouhém aerobním výkonu  \n• Vyšší odolnost vůči únavě v aerobní zátěži\n\n❌ <b>Nevýhody:</b>\n• Nižší výbušná síla a pomalejší nárůst svalové hmoty při čistě silovém tréninku\n\n💡 <b>Poznámka:</b> To, v čem budete nejlepší, určuje hlavně trénink."
+              }
+            },
+            "population_frequency_eur": {
+              "RR": "≈31 % (Evropa)",
+              "RX": "≈50 % (Evropa)",
+              "XX": "≈19 % (Evropa)",
+              "note": "V Asii je X alela častější, v Africe vzácnější."
+            }
+          },
+          "rs699": {
+            "gene": "AGT",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Varianta rs699 (M235T) souvisí hlavně s regulací krevního tlaku a reakcí cév při zátěži. Genotyp TT bývá v některých studiích spojován s o něco vyšší reakcí krevního tlaku na intenzivní výkon. Na sportovní výkon má ale jen malý a nejasný vliv."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Smíšený profil. Pokud sportujete, myslete spíš na obecné věci (postupné zvyšování zátěže, regenerace). Vliv tohoto SNP na sílu/vytrvalost je malý."
+              },
+              "CC": {
+                "score": "good",
+                "description": "Genotyp CC je v některých studiích mírně častější u silově‑rychlostních sportů, ale výsledky jsou nejednotné. Berte to jako drobný „sklon“, ne jako předpověď výkonu."
+              }
+            }
+          },
+          "rs17602729": {
+            "gene": "AMPD1",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Normální produkce energie ve svalech během intenzivní zátěže."
+              },
+              "GA": {
+                "score": "good",
+                "description": "Mírně snížená tolerance k vysoké intenzitě, ale může chránit před poškozením svalů."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Zvýšená únava při vysoké intenzitě. Zaměřte se na vytrvalostní sporty a delší regeneraci."
+              }
+            },
+            "population_frequency_eur": {
+              "minor_allele_frequency": 0.11,
+              "note": "Minor (stop-codon) allele ~9–14% in Europeans."
+            }
+          },
+          "rs8192678": {
+            "gene": "PPARGC1A",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Vynikající mitochondriální funkce. Optimální pro vytrvalostní výkon."
+              },
+              "CG": {
+                "score": "good",
+                "description": "Spíš příznivá aerobní kapacita s potenciálem pro zlepšení tréninkem."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Průměrná aerobní kapacita. Pravidelný trénink je klíčový pro zlepšení vytrvalosti."
+              }
+            },
+            "population_frequency_eur": {
+              "GG": "≈50 %",
+              "GT": "≈40 %",
+              "TT": "≈10 %",
+              "note": "Globálně minor alela cca 26–44 %, podle populace."
+            }
+          },
+          "rs1800795": {
+            "gene": "IL6",
+            "alleles": {
+              "GG": {
+                "score": "good",
+                "description": "🧬 <b>Co tento gen dělá:</b> Varianta IL6 -174G>C (rs1800795) ovlivňuje, jak silně se IL‑6 vyplavuje při zátěži. Výsledky studií se liší, ale často se uvádí, že alela <b>G</b> souvisí s vyšší akutní zánětlivou odpovědí na intenzivní výkon.\n\n📊 <b>Genotyp GG:</b> spíše vyšší IL‑6 reakce při těžké zátěži.\n\n✅ <b>Možné výhody:</b>\n• Silnější adaptační signál pro hypertrofii / sílu  \n• Častější u silově‑rychlostních sportovců v některých studiích\n\n❌ <b>Možné nevýhody:</b>\n• Vyšší náchylnost k přetížení, pokud je málo regenerace\n\n💡 Vliv je malý a závisí na tréninku."
+              },
+              "GC": {
+                "score": "good",
+                "description": "🧬 <b>Genotyp GC:</b> střední zánětlivá odpověď, vyvážený profil pro sílu i vytrvalost."
+              },
+              "CC": {
+                "score": "good",
+                "description": "🧬 <b>Genotyp CC:</b> v některých studiích nižší IL‑6 odpověď a lepší tolerance dlouhé aerobní zátěže.\n\n✅ <b>Možné výhody:</b>\n• Mírně lepší vytrvalostní profil / menší svalové poškození po dlouhé zátěži\n\n❌ <b>Možné nevýhody:</b>\n• Slabší „anabolický\" signál na čistě silový trénink (rozdíly jsou malé)."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "G": 0.47,
+                "C": 0.53
+              },
+              "genotypes": {
+                "GG": 0.2209,
+                "GC": 0.4982,
+                "CC": 0.2809
+              },
+              "note": "Central European HapMap C allele ~0.535."
+            }
+          },
+          "rs4343": {
+            "gene": "ACE",
+            "alleles": {
+              "AA": {
+                "score": "good",
+                "description": "Proxy pro ACE I/I. Častěji spojováno s lepší vytrvalostí a ekonomičtějším využitím kyslíku při delším výkonu."
+              },
+              "AG": {
+                "score": "average",
+                "description": "Smíšený profil. Můžete dobře reagovat na kombinaci silových i vytrvalostních tréninků."
+              },
+              "GG": {
+                "score": "good",
+                "description": "Proxy pro ACE D/D. Častěji spojováno s lepší explozivní silou a rychlým výkonem. Vytrvalost se dá stejně dobře vytrénovat."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Přizpůsobte trénink svému genetickému profilu",
+          "Pokud máte předpoklady pro vytrvalost: běh, cyklistika, plavání",
+          "Pokud máte předpoklady pro sílu: posilování, sprinty, HIIT",
+          "Vyvážený profil: kombinovaný trénink (CrossFit, funkční trénink)"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1815739",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs699",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs17602729",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs8192678",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs1800795",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "injury_prevention": {
+        "name": "Prevence zranění",
+        "icon": "🩹",
+        "snps": {
+          "rs12722": {
+            "gene": "COL5A1",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Silný a pružný kolagen. Mírně snížené genetické riziko zranění šlach a vazů."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Průměrná pevnost kolagenu. Správné rozcvičení a technika jsou důležité."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Zvýšené riziko zranění šlach (Achillova šlacha, koleno). Důraz na prevenci a postupný nárůst zátěže."
+              }
+            },
+            "population_frequency_eur": {
+              "TT": "≈28 %",
+              "CT": "≈56 %",
+              "CC": "≈16 %",
+              "note": "Uvedeno v běžné populaci v publikovaných kohortách; liší se dle etnika."
+            }
+          },
+          "rs1800012": {
+            "gene": "COL1A1",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "T vzácnější varianta, která je ve více studiích spojena s nižším rizikem poranění vazů/šlach (např. ACL). Efekt je ale malý."
+              },
+              "GT": {
+                "score": "good",
+                "description": "Střední profil. Prevence zranění stojí hlavně na technice, posilování a postupném zvyšování zátěže."
+              },
+              "GG": {
+                "score": "average",
+                "description": "O něco vyšší náchylnost ke zraněním měkkých tkání ve sportu v některých studiích. Berte to jako důvod být pečlivější v prevenci – ne jako jistotu zranění."
+              }
+            },
+            "population_frequency_eur": {
+              "GG": "≈75–80 %",
+              "GT": "≈18–23 %",
+              "TT": "≈1–2 %",
+              "note": "T alela je méně častá (MAF ~9–15 % podle populace)."
+            }
+          }
+        },
+        "recommendations": [
+          "Vždy se důkladně rozcvičte před tréninkem (10-15 minut)",
+          "Posilujte stabilizační svaly (core, kolena, kotníky)",
+          "Zvyšujte intenzitu a objem tréninku postupně (pravidlo 10%)",
+          "Konzumujte dostatek bílkovin a kolagenu",
+          "Pravidelně strečujte a používejte foam roller",
+          "Při bolestech okamžitě snižte zátěž"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs12722",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs1800012",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "recovery": {
+        "name": "Regenerace",
+        "icon": "😴",
+        "snps": {
+          "rs1800795": {
+            "gene": "IL6",
+            "alleles": {
+              "GG": {
+                "score": "average",
+                "description": "GG může znamenat vyšší zánětlivou odpověď po intenzivní zátěži. Důležitá je kvalitní regenerace."
+              },
+              "GC": {
+                "score": "good",
+                "description": "GC = vyvážená zánětlivá odpověď a typicky průměrná regenerace."
+              },
+              "CC": {
+                "score": "good",
+                "description": "CC bývá spojováno s nižší IL‑6 odpovědí a někdy lepší regenerací po dlouhé vytrvalostní zátěži."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "G": 0.47,
+                "C": 0.53
+              },
+              "genotypes": {
+                "GG": 0.2209,
+                "GC": 0.4982,
+                "CC": 0.2809
+              },
+              "note": "Central European HapMap C allele ~0.535."
+            }
+          },
+          "rs1815739": {
+            "gene": "ACTN3",
+            "alleles": {
+              "CC": {
+                "score": "good",
+                "description": "CC (RR): rychlá svalová vlákna s α‑actinin‑3. Obvykle lepší zotavení po čistě silové/anaerobní zátěži, ale rozdíly jsou malé."
+              },
+              "CT": {
+                "score": "good",
+                "description": "CT (RX): vyvážená regenerace pro sílu i vytrvalost."
+              },
+              "TT": {
+                "score": "average",
+                "description": "TT (XX): vytrvalostnější profil. Po těžkém silovém tréninku můžete potřebovat o něco delší regeneraci."
+              }
+            },
+            "population_frequency_eur": {
+              "RR": "≈31 % (Evropa)",
+              "RX": "≈50 % (Evropa)",
+              "XX": "≈19 % (Evropa)",
+              "note": "V Asii je X alela častější, v Africe vzácnější."
+            }
+          }
+        },
+        "recommendations": [
+          "Spěte 7-9 hodin denně - spánek je nejdůležitější pro regeneraci",
+          "Po intenzivním tréninku konzumujte bílkoviny do 30 minut",
+          "Aktivní regenerace (lehká procházka, jóga, plavání)",
+          "Masáže a sauna pro urychlení regenerace",
+          "Hydratace - pijte minimálně 2-3 litry vody denně",
+          "Protizánětlivá strava (ryby, ořechy, ovoce, zelenina)"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1800795",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs1815739",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "stamina": {
+        "name": "Výdrž",
+        "icon": "🎯",
+        "snps": {
+          "rs8192678": {
+            "gene": "PPARGC1A",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Vynikající vytrvalost. Efektivní využití kyslíku a tvorba energie v mitochondriích."
+              },
+              "CG": {
+                "score": "good",
+                "description": "Spíš příznivá vytrvalost s potenciálem pro zlepšení pravidelným tréninkem."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Průměrná vytrvalost. Konzistentní aerobní trénink vám pomůže zlepšit výdrž."
+              }
+            },
+            "population_frequency_eur": {
+              "GG": "≈50 %",
+              "GT": "≈40 %",
+              "TT": "≈10 %",
+              "note": "Globálně minor alela cca 26–44 %, podle populace."
+            }
+          },
+          "rs699": {
+            "gene": "AGT",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Tato varianta ovlivňuje hlavně kardiovaskulární regulaci (krevní tlak). Některé studie naznačují drobný vztah k vytrvalosti, ale efekty jsou malé."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Vyvážený profil. Pro výdrž rozhoduje hlavně trénink – genetický efekt je jen doplňkový."
+              },
+              "CC": {
+                "score": "good",
+                "description": "Možný lehce „silovější“ sklon v některých studiích, pro vytrvalost to není nevýhoda. Sledujte hlavně svůj trénink a regeneraci."
+              }
+            }
+          }
+        },
+        "recommendations": [
+          "Pravidelný aerobní trénink 3-5x týdně (běh, kolo, plavání)",
+          "Postupně zvyšujte délku a intenzitu tréninků",
+          "HIIT (vysokointenzivní intervalový trénink) pro zlepšení VO2 max",
+          "Komplexní sacharidy před dlouhým výkonem",
+          "Trénujte konzistentně - vytrvalost se zlepšuje postupně"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs8192678",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs699",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "caffeine": {
+    "name": "Kofein",
+    "icon": "☕",
+    "description": "Vaše DNA a kofein",
+    "traits": {
+      "sleep_effect": {
+        "name": "Vliv kofeinu na spánek",
+        "icon": "😴",
+        "snps": {
+          "rs3761422": {
+            "gene": "ADORA2A",
+            "alleles": {
+              "TT": {
+                "score": "average",
+                "description": "Vyšší citlivost na kofein z hlediska spánku a nervozity. rs3761422 je úzce propojeno s častěji studovaným rs5751876 v ADORA2A. I menší odpolední káva může zhoršit usínání."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Střední citlivost – kofein může spánek ovlivnit hlavně při vyšších dávkách nebo večer. Zkuste poslední kávu 6 hodin před spaním."
+              },
+              "CC": {
+                "score": "excellent",
+                "description": "Nižší citlivost na kofein ve vztahu ke spánku. Přesto platí, že velké dávky večer mohou rušit spánek u kohokoli."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.6,
+                "T": 0.4
+              },
+              "genotypes": {
+                "CC": 0.36,
+                "CT": 0.48,
+                "TT": 0.16
+              },
+              "note": "European ancestry MAF around 0.40."
+            }
+          },
+          "rs5751876": {
+            "gene": "ADORA2A",
+            "alleles": {
+              "TT": {
+                "score": "caution",
+                "description": "Vyšší citlivost na kofein. Častěji se objevuje úzkost, bušení srdce nebo horší spánek i po menších dávkách."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Střední citlivost. Kofein může zlepšit bdělost, ale pozdní káva může zhoršit usínání."
+              },
+              "CC": {
+                "score": "good",
+                "description": "Nižší citlivost na úzkostné/insomnické účinky kofeinu. Spánek ale může ovlivnit i tak – hlavně při vysokých dávkách."
+              }
+            },
+            "evidence": "high",
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.609,
+                "T": 0.391
+              },
+              "genotypes": {
+                "CC": 0.371,
+                "CT": 0.476,
+                "TT": 0.153
+              },
+              "note": "T allele ~39% u Evropanů; genotypy odhad HWE."
+            }
+          }
+        },
+        "recommendations": [
+          "Pokud jste citliví: žádný kofein po 14:00",
+          "Sledujte kvalitu spánku a přizpůsobte konzumaci",
+          "Zvažte bezkofeinové varianty odpoledne",
+          "Maximálně 2-3 šálky kávy denně"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs3761422",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "metabolism": {
+        "name": "Metabolismus kofeinu",
+        "icon": "⚡",
+        "snps": {
+          "rs1057868": {
+            "gene": "POR",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Typická varianta. Aktivita enzymu POR, který podporuje funkci CYP1A2, bývá standardní – metabolismus kofeinu odpovídá tomu, co ukazuje hlavně CYP1A2 (rs762551)."
+              },
+              "TC": {
+                "score": "average",
+                "description": "Mírně změněná aktivita POR. U některých lidí může znamenat o trochu pomalejší odbourávání kofeinu, zejména pokud je zároveň pomalejší varianta CYP1A2. Prakticky: více hlídejte čas poslední kávy."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Varianty spojené s o něco nižší aktivitou POR mohou u citlivějších jedinců přispívat k pomalejšímu metabolismu kofeinu. V praxi se to projeví spíš při vyšším příjmu a pozdním pití kávy."
+              }
+            },
+            "evidence": "emerging"
+          },
+          "rs762551": {
+            "gene": "CYP1A2",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Rychlý metabolismus kofeinu. Kofein rychle opouští vaše tělo, můžete tolerovat více kávy bez vedlejších účinků. Tento výsledek má 45% populace."
+              },
+              "AC": {
+                "score": "good",
+                "description": "Průměrný metabolismus kofeinu. Střední tolerance, 2-3 šálky denně jsou ideální."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Pomalý metabolismus kofeinu. Kofein zůstává v těle déle, zvýšené riziko nervozity a srdečních problémů při vysoké konzumaci. Omezte na 1-2 šálky denně."
+              }
+            },
+            "population_frequency_eur": {
+              "AA": "≈43 %",
+              "AC": "≈41 %",
+              "CC": "≈16 %",
+              "note": "Frekvence u Evropanů se pohybuje podobně; globálně se liší."
+            }
+          },
+          "rs2472297": {
+            "gene": "CYP1A1/CYP1A2 region",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Tato varianta je spojována spíš s tím, kolik kofeinu lidé běžně pijí (chuť/”poptávka” po kávě), ne s detoxikací. TT bývá spojeno s vyšší tendencí pít kávu."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Průměrná genetická tendence ke konzumaci kofeinu. Na toleranci má větší vliv CYP1A2 (rs762551) a životní styl."
+              },
+              "CC": {
+                "score": "good",
+                "description": "Nižší genetická tendence k vyššímu příjmu kofeinu. Neznamená to, že vám káva nechutná – jen že genetika vás trochu méně „tlačí“ k častému pití."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.7,
+                "T": 0.3
+              },
+              "genotypes": {
+                "CC": 0.49,
+                "CT": 0.42,
+                "TT": 0.09
+              },
+              "note": "European-specific common variant; approximate EUR MAF ~0.30."
+            }
+          },
+          "rs4410790": {
+            "gene": "AHR",
+            "alleles": {
+              "TT": {
+                "score": "average",
+                "description": "Běžná varianta. Typická tendence k pití kávy a standardní metabolická dráha přes CYP1A2."
+              },
+              "TC": {
+                "score": "average",
+                "description": "C alela je spojena s vyšší oblibou kávy a lehce odlišnou regulací enzymů pro metabolismus kofeinu. Praktický dopad je malý."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Častější „kávový“ genotyp – lidé s CC často pijí o něco víc kofeinu. Neříká nic o zdravotním dopadu, spíš o chuti/odměně."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Rychlý metabolismus: můžete tolerovat 3-4 šálky denně",
+          "Pomalý metabolismus: max 1-2 šálky, pouze dopoledne",
+          "Sledujte vedlejší účinky (nervozita, bušení srdce, nespavost)",
+          "Pijte hodně vody - kofein dehydratuje"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs762551",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs2472297",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "induction": {
+        "name": "Indukce kofeinu",
+        "icon": "🔄",
+        "snps": {
+          "rs762551": {
+            "gene": "CYP1A2",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Vaše enzymy se rychle přizpůsobují pravidelnému příjmu kofeinu. Tolerance se buduje pomaleji."
+              },
+              "AC": {
+                "score": "good",
+                "description": "Průměrná adaptace na kofein. Občasné pauzy pomáhají obnovit citlivost."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Rychlé budování tolerance. Potřebujete stále více kofeinu pro stejný efekt. Dělejte pravidelné pauzy."
+              }
+            },
+            "population_frequency_eur": {
+              "AA": "≈43 %",
+              "AC": "≈41 %",
+              "CC": "≈16 %",
+              "note": "Frekvence u Evropanů se pohybuje podobně; globálně se liší."
+            }
+          }
+        },
+        "recommendations": [
+          "Dělejte \"kofeinové pauzy\" (1 týden bez kofeinu každé 3 měsíce)",
+          "Nepijte kávu preventivně - jen když skutečně potřebujete",
+          "Kombinujte s L-theaninem (zelený čaj) pro plynulejší efekt",
+          "Dopolední káva má nejlepší poměr přínosů a rizik"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs762551",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "skin": {
+    "name": "Stárnutí pleti",
+    "icon": "✨",
+    "description": "DNA profil stárnutí pleti",
+    "traits": {
+      "age_spots": {
+        "name": "Pigmentové skvrny",
+        "icon": "🔆",
+        "snps": {
+          "rs12203592": {
+            "gene": "IRF4",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Mírně snížené genetické riziko pigmentových skvrn. Vaše pokožka je odolnější vůči tvorbě melaninu."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Průměrné riziko pigmentových skvrn. Ochrana před sluncem je důležitá."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Vyšší riziko pigmentových skvrn, zejména po vystavení slunci. Používejte SPF denně."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.83,
+                "T": 0.17
+              },
+              "genotypes": {
+                "CC": 0.6889,
+                "CT": 0.2822,
+                "TT": 0.0289
+              },
+              "note": "T allele frequency ~17% in Europeans; genotypes estimated by HWE."
+            }
+          },
+          "rs6059655": {
+            "gene": "RALY/ASIP",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Nízká tendence k tvorbě pigmentových skvrn."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Mírně zvýšené riziko. Pravidelná ochrana SPF je důležitá."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Mírně zvýšené genetické riziko pigmentových skvrn. Vyhněte se přímému slunci mezi 10-16h."
+              }
+            }
+          },
+          "rs12913832": {
+            "gene": "HERC2",
+            "alleles": {
+              "AA": {
+                "score": "good",
+                "description": "Nižší citlivost na UV‑indukovanou pigmentaci. Skvrny se typicky tvoří pomaleji."
+              },
+              "AG": {
+                "score": "average",
+                "description": "Střední citlivost. UV ochrana (SPF, klobouk) významně ovlivní výsledek."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Častěji světlejší fenotyp a vyšší fotosenzitivita – pigmentové skvrny se mohou tvořit snáz při častém slunění."
+              }
+            },
+            "evidence": "moderate"
+          },
+          "rs16891982": {
+            "gene": "SLC45A2",
+            "alleles": {
+              "CC": {
+                "score": "average",
+                "description": "Tmavší pigmentace a lepší přirozená UV ochrana. Riziko skvrn je spíš nižší, ale stále roste se sluněním."
+              },
+              "CG": {
+                "score": "average",
+                "description": "Smíšený pigmentový profil. Vliv prostředí převládá nad genetikou."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Světlý pigmentový profil (u Evropanů velmi běžné). Vyšší náchylnost na UV‑působení, takže SPF dělá velký rozdíl."
+              }
+            },
+            "evidence": "moderate",
+            "population_frequency_eur": {
+              "note": "Odvozená G alela je v Evropě téměř fixovaná → varianta je pro Evropany velmi běžná."
+            }
+          }
+        },
+        "recommendations": [
+          "Používejte SPF 30+ denně, i v zimě a zataženo",
+          "Noste klobouk a sluneční brýle při venkovních aktivitách",
+          "Vyhněte se přímému slunci 10-16h",
+          "Antioxidanty (vitamín C sérum) pro ochranu pokožky",
+          "Pravidelná exfoliace a séra s niacinamidem",
+          "Konzumujte potraviny bohaté na beta-karoten"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs12203592",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs6059655",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "wrinkles": {
+        "name": "Vrásky způsobené sluncem",
+        "icon": "☀️",
+        "snps": {
+          "rs1805007": {
+            "gene": "MC1R",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Spíš příznivá ochrana proti poškození sluncem. Nižší riziko předčasného stárnutí pleti."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Průměrná citlivost na UV záření. Pravidelná ochrana je klíčová."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Vysoká citlivost na UV záření. Vaše pokožka je náchylnější k vrásek způsobeným sluncem a poškození kolagenu."
+              }
+            }
+          },
+          "rs12203592": {
+            "gene": "IRF4",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Odolná pokožka vůči fotostárnutí."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Průměrná odolnost. Ochrana SPF zamezí předčasnému stárnutí."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Zvýšené riziko vrásek způsobených sluncem. Striktní fotoprotekce je nutná."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.83,
+                "T": 0.17
+              },
+              "genotypes": {
+                "CC": 0.6889,
+                "CT": 0.2822,
+                "TT": 0.0289
+              },
+              "note": "T allele frequency ~17% in Europeans; genotypes estimated by HWE."
+            }
+          },
+          "rs1799750": {
+            "gene": "MMP1",
+            "alleles": {
+              "1G1G": {
+                "score": "good",
+                "description": "Nižší aktivita MMP‑1 → o něco pomalejší rozpad kolagenu v některých studiích."
+              },
+              "1G2G": {
+                "score": "average",
+                "description": "Střední aktivita. Vrásky nejvíc ovlivňuje UV, kouření a hydratace."
+              },
+              "2G2G": {
+                "score": "average",
+                "description": "Vyšší aktivita MMP‑1 → teoreticky rychlejší rozpad kolagenu při zátěži (UV, kouření). Efekt je malý, ale životní styl ho může zesílit."
+              }
+            },
+            "evidence": "low"
+          },
+          "rs3025058": {
+            "gene": "MMP3",
+            "alleles": {
+              "5A5A": {
+                "score": "average",
+                "description": "Vyšší aktivita MMP‑3 → může znamenat rychlejší remodelaci ECM při zátěži."
+              },
+              "5A6A": {
+                "score": "average",
+                "description": "Střední aktivita."
+              },
+              "6A6A": {
+                "score": "good",
+                "description": "Nižší aktivita MMP‑3, potenciálně mírně pomalejší degradace matrix."
+              }
+            },
+            "evidence": "low"
+          }
+        },
+        "recommendations": [
+          "SPF je vaše nejlepší anti-age péče - používejte denně!",
+          "Retinol/retinoid večer pro podporu tvorby kolagenu",
+          "Vitamín C sérum ráno (antioxidant)",
+          "Hydratace - pijte 2-3 litry vody denně",
+          "Kolagen v potravě (kostní vývar, želatina)",
+          "Nekuřte - kouření urychluje stárnutí pleti",
+          "Dostatek spánku - kůže se regeneruje v noci"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1805007",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs12203592",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "heart": {
+    "name": "Zdraví srdce",
+    "icon": "❤️",
+    "description": "Personalizovaný průvodce zdravím srdce",
+    "traits": {
+      "omega": {
+        "name": "Zpracování omega-3 a omega-6",
+        "icon": "🐟",
+        "snps": {
+          "lpa": {
+            "name": "Lipoprotein(a)",
+            "icon": "🧬",
+            "snps": {
+              "rs10455872": {
+                "gene": "LPA",
+                "alleles": {
+                  "AA": {
+                    "score": "good",
+                    "description": "Nebývá spojeno s výrazně zvýšenou hladinou Lp(a). Riziko kardiovaskulárních onemocnění je zde více o klasických faktorech (krevní tlak, LDL, kouření, pohyb)."
+                  },
+                  "AG": {
+                    "score": "caution",
+                    "description": "Přítomnost G alely je u mnoha lidí spojena s vyšší hladinou Lp(a) a tím i vyšším celoživotním kardiovaskulárním rizikem. Nemění to léčbu samo o sobě, ale dává důvod extra pečlivě hlídat ostatní rizikové faktory."
+                  },
+                  "GG": {
+                    "score": "caution",
+                    "description": "Geneticky výrazně zvýšená tendence k vyšší Lp(a). V praxi se doporučuje agresivnější management ostatních rizik (LDL, tlak, kouření, hmotnost) a klinické sledování dle doporučení lékaře."
+                  }
+                },
+                "evidence": "high"
+              }
+            },
+            "recommendations": [
+              "Pokud je přítomna riziková G alela, má smysl jednou změřit Lp(a) laboratorně.",
+              "Důsledně hlídejte LDL cholesterol (strava, případně léčba dle lékaře).",
+              "Nekuřte – kouření výrazně zhoršuje dopad vyššího Lp(a).",
+              "Dbejte na krevní tlak, pohyb a zdravou tělesnou hmotnost.",
+              "V případě rodinného výskytu časných infarktů/projevů aterosklerózy řešte výsledek s lékařem."
+            ],
+            "evidence": "high",
+            "combined_score_model": {
+              "model": "weighted_sum",
+              "score_weights": [
+                {
+                  "rsid": "rs10455872",
+                  "weight": 1.0,
+                  "evidence": "high"
+                }
+              ],
+              "how_to_use": "Tento trait je hodně ‚ano/ne‘ – přítomnost G alely je silný genetický signál pro vyšší Lp(a). Vždy je nutné spojit s laboratorním měřením a klinickým kontextem."
+            }
+          },
+          "rs174546": {
+            "gene": "FADS1",
+            "alleles": {
+              "CC": {
+                "score": "average",
+                "description": "Snížená konverze omega-3 (ALA → EPA/DHA). Preferujte přímé zdroje EPA/DHA (ryby, mořské plody) před rostlinnými zdroji (lněné semínko)."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Spíš příznivá konverze omega-3. Kombinujte rostlinné a živočišné zdroje."
+              },
+              "TT": {
+                "score": "excellent",
+                "description": "Vynikající konverze omega-3 (ALA → EPA/DHA). Vaše tělo efektivně zpracuje omega-3 i z rostlinných zdrojů."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.7,
+                "T": 0.3
+              },
+              "genotypes": {
+                "CC": 0.49,
+                "CT": 0.42,
+                "TT": 0.09
+              },
+              "note": "Approx for Europeans based on 1000G summary; varies within Europe."
+            }
+          },
+          "rs174547": {
+            "gene": "FADS1",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Obvykle lepší schopnost přeměny kratších omega‑3 (ALA z rostlin) na EPA/DHA. Přesto se vyplatí mít zdroje omega‑3 v jídelníčku."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Střední přeměna omega‑3. Prakticky pomáhá pravidelná konzumace ryb/řas."
+              },
+              "CC": {
+                "score": "caution",
+                "description": "Nižší aktivita desaturáz → slabší přeměna ALA na EPA/DHA. Často mají největší benefit z přímých zdrojů (tučné ryby, řasové EPA/DHA)."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Konzumujte tučné ryby 2-3x týdně (losos, makrela, sardinka)",
+          "Snížená konverze: zvažte omega-3 suplementaci (EPA/DHA)",
+          "Dobrá konverze: lněné semínko, chia, vlašské ořechy",
+          "Vyvažte poměr omega-6:omega-3 (ideálně 4:1 nebo méně)",
+          "Omezte rostlinné oleje s vysokým omega-6 (slunečnicový)"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs174546",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "dietary_fats": {
+        "name": "Zpracování tuků z potravy",
+        "icon": "🥑",
+        "snps": {
+          "rs708272": {
+            "gene": "CETP",
+            "alleles": {
+              "AA": {
+                "score": "average",
+                "description": "Běžná varianta (B1/B1). CETP aktivita je typicky vyšší, HDL může být spíš nižší – reakce na stravu (vláknina, nenasycené tuky, pohyb) je zde hodně důležitá."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Smíšený profil (B1/B2). U části lidí bývá o něco příznivější HDL profil, pokud je strava založená na nenasycených tucích a vláknině."
+              },
+              "GG": {
+                "score": "good",
+                "description": "Varianta často spojená s vyšším HDL a nižší aktivitou CETP. Potenciálně příznivější lipidový profil, ale špatná strava a sedavý styl dokážou výhodu snadno zrušit."
+              }
+            },
+            "evidence": "moderate"
+          },
+          "rs670": {
+            "gene": "APOA1",
+            "alleles": {
+              "GG": {
+                "score": "good",
+                "description": "Typická varianta. HDL cholesterol obvykle dobře reaguje na pohyb a zdravé tuky (olivový olej, ořechy, ryby)."
+              },
+              "AG": {
+                "score": "average",
+                "description": "Mírně odlišná regulace APOA1; u některých lidí může být HDL o něco nižší. Efekt lze dobře ovlivnit životním stylem – pohyb, vláknina, omezení trans tuků."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Vzácnější genotyp. Často je větší citlivost HDL na typ stravy – prospívá středomořský styl, méně jednoduchých cukrů, více nenasycených tuků."
+              }
+            },
+            "evidence": "low"
+          },
+          "rs1800588": {
+            "gene": "LIPC",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Efektivní metabolismus tuků a cholesterolu. Nižší riziko kardiovaskulárních onemocnění."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Normální zpracování tuků. Udržujte vyváženou stravu."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Snížená aktivita jaterní lipázy. Vyšší citlivost na nasycené tuky, které mohou zvýšit LDL cholesterol."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.8,
+                "T": 0.2
+              },
+              "genotypes": {
+                "CC": 0.64,
+                "CT": 0.32,
+                "TT": 0.04
+              },
+              "note": "T minor allele ~0.19-0.25 in European studies; genotypes HWE."
+            }
+          },
+          "rs429358": {
+            "gene": "APOE",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Spolu s rs7412 určuje APOE typ. Samotný rs429358 bez druhého SNP nedává smysl – vyhodnocujeme je dohromady."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Viz kombinace s rs7412."
+              },
+              "CC": {
+                "score": "caution",
+                "description": "Viz kombinace s rs7412."
+              }
+            },
+            "evidence": "moderate"
+          },
+          "rs7412": {
+            "gene": "APOE",
+            "alleles": {
+              "CC": {
+                "score": "good",
+                "description": "Spolu s rs429358 určuje APOE (ε2/ε3/ε4). Samostatně se neinterpretuje."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Viz kombinace s rs429358."
+              },
+              "TT": {
+                "score": "caution",
+                "description": "Viz kombinace s rs429358."
+              }
+            },
+            "evidence": "moderate",
+            "population_frequency_eur": {
+              "note": "V Evropě má APOE ε4 alela zhruba 14% podíl; ε3 je nejběžnější. Pro přesný typ je nutná kombinace rs429358 + rs7412."
+            }
+          }
+        },
+        "recommendations": [
+          "Preferujte nenasycené tuky (olivový olej, ořechy, avokádo)",
+          "Omezte nasycené tuky (červené maso, máslo, smetana)",
+          "Vyhněte se trans tukům (průmyslově zpracované potraviny)",
+          "Pravidelně kontrolujte hladiny cholesterolu",
+          "Aerobní cvičení pomáhá zvyšovat HDL (dobré) cholesterol"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1800588",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        },
+        "combined_rules": [
+          {
+            "name": "APOE typ (rs429358 + rs7412)",
+            "logic": "rs429358 & rs7412",
+            "evidence": "moderate",
+            "result_map": {
+              "ε2/ε2": {
+                "score": "good",
+                "description": "Vzácnější typ (~1% Evropanů). Často nižší LDL, ale u některých lidí vyšší triglyceridy – vyplatí se hlídat cukry a alkohol."
+              },
+              "ε2/ε3": {
+                "score": "good",
+                "description": "Obvykle příznivější lipidový profil, ale citlivost na velmi vysoký příjem cukrů může zvyšovat TG."
+              },
+              "ε3/ε3": {
+                "score": "average",
+                "description": "Nejběžnější typ. Reaguje typicky na změny ve stravě."
+              },
+              "ε3/ε4": {
+                "score": "caution",
+                "description": "Častější vyšší LDL a větší citlivost na nasycené tuky. Největší benefit mívá středomořská strava, méně SFA, více vlákniny."
+              },
+              "ε4/ε4": {
+                "score": "caution",
+                "description": "Vzácné (~2% Evropanů). Vyšší citlivost na nasycené tuky a častěji vyšší LDL/TG. Dietní změny mají obvykle velký efekt."
+              }
+            },
+            "note": "Toto je nutrigenetická interpretace pro tuky a lipidy, ne diagnostika nemocí."
+          }
+        ]
+      },
+      "fiber": {
+        "name": "Vláknina",
+        "icon": "🌾",
+        "snps": {
+          "rs662799": {
+            "gene": "APOA5",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Nízké hladiny triglyceridů. Vaše tělo efektivně zpracovává tuky z potravy."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Mírně zvýšené triglyceridy. Vláknina pomáhá udržet zdravé hladiny."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Tendence k vyšším triglyceridům. Vysoký příjem vlákniny je pro vás obzvlášť důležitý pro zdraví srdce."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "A": 0.936,
+                "G": 0.064
+              },
+              "genotypes": {
+                "AA": 0.8761,
+                "AG": 0.1198,
+                "GG": 0.0041
+              },
+              "note": "European risk allele C/G frequency ~6.4%."
+            }
+          },
+          "rs328": {
+            "gene": "LPL",
+            "alleles": {
+              "CC": {
+                "score": "average",
+                "description": "Typická varianta. Triglyceridy u vás obvykle dobře odpovídají na standardní jídelníček."
+              },
+              "CG": {
+                "score": "good",
+                "description": "S447X varianta bývá spojena s o něco nižšími triglyceridy a vyšším HDL. Výhodu ale může „sežrat“ vysoký příjem cukrů/ultra‑procesovaných jídel."
+              },
+              "GG": {
+                "score": "good",
+                "description": "Vzácnější kombinace s příznivějším TG profilem. I tak platí, že nadbytek cukru a alkoholu dokáže výhodu zrušit."
+              }
+            },
+            "evidence": "moderate",
+            "population_frequency_eur": {
+              "minor_allele_frequency": 0.125,
+              "note": "MAF ~12.5% v CEU/evropské ancestrii."
+            }
+          }
+        },
+        "recommendations": [
+          "Cílte na 30-40g vlákniny denně",
+          "Celozrnné obilniny, luštěniny, ovoce, zelenina",
+          "Rozpustná vláknina (oves, jablka) snižuje cholesterol",
+          "Omezte jednoduché cukry a rafinované sacharidy",
+          "Pijte dostatek vody s vlákninou"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs662799",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "vitamins_bone": {
+    "name": "Vitamíny - Kosti",
+    "icon": "🦴",
+    "description": "Personalizovaný průvodce vitamíny pro kostní zdraví",
+    "traits": {
+      "vitamin_a": {
+        "name": "Vitamín A",
+        "icon": "🥕",
+        "snps": {
+          "rs12934922": {
+            "gene": "BCMO1",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Vynikající konverze beta-karotenu na vitamín A. Efektivní využití rostlinných zdrojů (mrkev, dýně)."
+              },
+              "TA": {
+                "score": "good",
+                "description": "Spíš příznivá konverze beta-karotenu. Kombinujte rostlinné a živočišné zdroje."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Snížená konverze beta-karotenu na vitamín A. Preferujte přímé zdroje vitamínu A (játra, mléčné výrobky, vejce, ryby)."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "A": 0.58,
+                "T": 0.42
+              },
+              "genotypes": {
+                "AA": 0.3364,
+                "AT": 0.4872,
+                "TT": 0.1764
+              },
+              "note": "European/Caucasian cohorts; common variant."
+            }
+          },
+          "rs7501331": {
+            "gene": "BCMO1",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Vynikající konverze beta-karotenu na vitamín A. Můžete dobře využít rostlinné zdroje."
+              },
+              "TC": {
+                "score": "good",
+                "description": "Spíš příznivá konverze beta-karotenu. Kombinujte rostlinné a živočišné zdroje."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Snížená konverze beta‑karotenu na vitamín A. U části lidí se popisuje nižší účinnost (řádově desítky procent), proto je praktické kombinovat rostlinné zdroje s živočišnými (vejce, mléčné výrobky, ryby)."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "T": 0.76,
+                "C": 0.24
+              },
+              "genotypes": {
+                "TT": 0.5776,
+                "TC": 0.3648,
+                "CC": 0.0576
+              },
+              "note": "Variant allele ~24% in European-like populations; approximate."
+            }
+          }
+        },
+        "recommendations": [
+          "Dobrá konverze: mrkev, sladké brambory, špenát, dýně",
+          "Snížená konverze: játra, vejce, mléčné výrobky, ryby",
+          "Beta-karoten se lépe vstřebává s tukem (olivový olej)",
+          "Nekuřte - kouření snižuje absorpci vitamínu A",
+          "Suplementace pouze pod dohledem lékaře (toxický ve vysokých dávkách)"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs12934922",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs7501331",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "calcium": {
+        "name": "Vápník a vitamín D",
+        "icon": "🥛",
+        "snps": {
+          "rs7041": {
+            "gene": "GC",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Optimální transport vitamínu D v krvi. Vyšší hladiny 25(OH)D."
+              },
+              "TG": {
+                "score": "good",
+                "description": "Průměrné hladiny vitamínu D. Pravidelně na slunce nebo suplementace v zimě."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Tendence k nízkým hladinám vitamínu D. Vyšší riziko nedostatku vápníku a oslabení kostí. Pravidelná suplementace může být potřebná."
+              }
+            },
+            "population_frequency_eur": {
+              "GG": "≈28 %",
+              "GT": "≈50 %",
+              "TT": "≈22 %",
+              "note": "Odhad pro Evropu z EUR alelové frekvence (G≈53 %, T≈47 %) za předpokladu HWE."
+            }
+          },
+          "rs4588": {
+            "gene": "GC",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Optimální dostupnost vitamínu D pro tělo. Lepší metabolismus vápníku."
+              },
+              "AC": {
+                "score": "good",
+                "description": "Normální hladiny vitamínu D při dostatečné expozici slunci."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Snížená biologická dostupnost vitamínu D. Důležitá je pravidelná suplementace."
+              }
+            },
+            "population_frequency_eur": {
+              "CC": "≈52 %",
+              "CA": "≈40 %",
+              "AA": "≈8 %",
+              "note": "Odhad pro Evropu z EUR alelové frekvence (G≈72 %, T≈28 %) za předpokladu HWE."
+            }
+          },
+          "rs1544410": {
+            "gene": "VDR",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Vynikající receptor vitamínu D. Efektivní využití vitamínu D pro vstřebávání vápníku."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Normální funkce receptoru vitamínu D."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Snížená citlivost na vitamín D. Můžete potřebovat vyšší dávky pro optimální zdraví kostí."
+              }
+            },
+            "population_frequency_eur": {
+              "minor_allele_frequency": 0.2,
+              "note": "European minor allele ~20% on A/G strand; allele letters may differ by strand."
+            }
+          }
+        },
+        "recommendations": [
+          "Cílte na 1000-1200 mg vápníku denně (mléčné výrobky, brokolice)",
+          "Vitamín D: 15-30 minut denně na slunci nebo suplementace",
+          "Nechte si zkontrolovat hladinu vitamínu D (cíl: 30-50 ng/ml)",
+          "Vitamín K2 pomáhá vápníku do kostí (fermentované potraviny)",
+          "Silový trénink pro pevné kosti",
+          "Omezte kofein, sodík a alkohol (vylučují vápník)"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs7041",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs4588",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs1544410",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "vitamin_d": {
+        "name": "Vitamín D (syntéza)",
+        "icon": "☀️",
+        "snps": {
+          "rs10741657": {
+            "gene": "CYP2R1",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Efektivní syntéza vitamínu D z vystavení slunci."
+              },
+              "GA": {
+                "score": "good",
+                "description": "Normální syntéza vitamínu D."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Snížená schopnost vytvářet vitamín D z vystavení slunci. Vyšší riziko nedostatku."
+              }
+            },
+            "population_frequency_eur": {
+              "GG": "≈25 %",
+              "GA": "≈50 %",
+              "AA": "≈25 %",
+              "note": "Odhad z alelové frekvence blízko 50/50 v Evropě."
+            }
+          },
+          "rs12785878": {
+            "gene": "DHCR7",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Optimální produkce prekurzoru vitamínu D v kůži."
+              },
+              "TG": {
+                "score": "good",
+                "description": "Normální produkce vitamínu D."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Snížená produkce vitamínu D. V zimních měsících je suplementace důležitá."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "T": 0.74,
+                "G": 0.26
+              },
+              "genotypes": {
+                "TT": 0.5476,
+                "TG": 0.3848,
+                "GG": 0.0676
+              },
+              "note": "European ancestry estimate."
+            }
+          },
+          "rs2228570": {
+            "gene": "VDR",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Častěji vyšší citlivost receptoru pro vitamin D. U části lidí to souvisí s o něco lepší hladinou při stejné expozici slunci."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Střední funkční profil receptoru."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Některé evropské studie spojují CC s vyšší pravděpodobností nižší hladiny vitaminu D. Efekt je malý, ale může se projevit v zimě."
+              }
+            },
+            "evidence": "moderate",
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.578,
+                "T": 0.422
+              },
+              "note": "C allele ~58% v evropské části Ruska (eur‑approx); v Evropě se liší sever/jih."
+            }
+          },
+          "rs6013897": {
+            "gene": "CYP24A1",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "Běžná varianta. CYP24A1 pomáhá rozkládat aktivní vitamin D – typický profil."
+              },
+              "TG": {
+                "score": "average",
+                "description": "Některé GWAS spojují G alelu s mírně nižší hladinou 25(OH)D. Prakticky pomáhá pravidelný příjem D v zimě."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Silnější tendence k nižším hladinám D v populaci. Největší rozdíl dělá slunce/suplementace."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Choďte denně ven: 15-30 minut (ruce, obličej, nohy na slunci)",
+          "V ČR od října do března suplementujte (1000-2000 IU denně)",
+          "Tučné ryby (losos, makrela), žloutky, obohacené potraviny",
+          "Nechte si zkontrolovat hladiny 2x ročně (jaro, podzim)",
+          "Vyšší dávky pouze pod dohledem lékaře",
+          "Vitamín D je rozpustný v tucích - berte s jídlem obsahujícím tuk"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs10741657",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs12785878",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "iron": {
+    "name": "Železo",
+    "icon": "🩸",
+    "description": "Personalizovaný průvodce absorpcí železa",
+    "traits": {
+      "iron_absorption": {
+        "name": "Absorpce železa",
+        "icon": "⚙️",
+        "snps": {
+          "rs3811647": {
+            "gene": "TF",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Optimální transport železa v krvi. Mírně snížené genetické riziko nedostatku nebo přetížení."
+              },
+              "GA": {
+                "score": "good",
+                "description": "Normální hladiny železa. Udržujte vyváženou stravu."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Tendence k nižším hladinám železa. Ženy s menstruací mají zvýšené riziko anémie."
+              }
+            }
+          },
+          "rs4820268": {
+            "gene": "TMPRSS6",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Vynikající absorpce železa ze stravy."
+              },
+              "GA": {
+                "score": "good",
+                "description": "Spíš příznivá absorpce železa."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Snížená absorpce železa. Můžete potřebovat více železa ze stravy nebo suplementaci."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "A": 0.58,
+                "G": 0.42
+              },
+              "genotypes": {
+                "AA": 0.3364,
+                "AG": 0.4872,
+                "GG": 0.1764
+              },
+              "note": "European MAF ~0.42 for G allele."
+            }
+          },
+          "rs1800562": {
+            "gene": "HFE",
+            "alleles": {
+              "GG": {
+                "score": "average",
+                "description": "Bez hlavní hemochromatózní varianty C282Y. Železo se většinou chová „typicky“."
+              },
+              "GA": {
+                "score": "caution",
+                "description": "Nosič C282Y. Může mít tendenci k vyšším zásobám železa, hlavně v kombinaci s dalšími variantami a vyšším příjmem železa."
+              },
+              "AA": {
+                "score": "caution",
+                "description": "C282Y homozygot. V Evropě vzácné, ale je to hlavní genetický faktor pro dědičnou hemochromatózu. Je vhodné sledovat ferritin a saturaci transferinu s lékařem."
+              }
+            },
+            "evidence": "high"
+          },
+          "rs1799945": {
+            "gene": "HFE",
+            "alleles": {
+              "CC": {
+                "score": "average",
+                "description": "Bez H63D varianty."
+              },
+              "CG": {
+                "score": "average",
+                "description": "Nosič H63D. Samo o sobě většinou jen malý vliv na železo."
+              },
+              "GG": {
+                "score": "caution",
+                "description": "H63D homozygot – mírná tendence k vyšším zásobám železa, hlavně pokud je současně C282Y."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Hemové železo (lépe vstřebatelné): červené maso, drůbež, ryby",
+          "Nehemové železo: luštěniny, špenát, tofu, obohacené cereálie",
+          "Vitamín C zvyšuje absorpci (citrusy ke každému jídlu s železem)",
+          "Vyhněte se čaji/kávě s jídlem (snižují absorpci o 60%)",
+          "Ženy 18-50 let: 18 mg/den, Muži: 8 mg/den",
+          "Pravidelně kontrolujte hladiny (zejména ženy, sportovci)",
+          "Příznaky nedostatku: únava, bledost, dušnost, slabé nehty"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs3811647",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs4820268",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "vitamin_c": {
+        "name": "Vitamín C",
+        "icon": "🍊",
+        "snps": {
+          "rs33972313": {
+            "gene": "SLC23A1",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Vynikající absorpce a hladiny vitamínu C v krvi."
+              },
+              "CA": {
+                "score": "good",
+                "description": "Normální hladiny vitamínu C."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Snížené hladiny vitamínu C. Potřebujete více z potravy nebo suplementace pro optimální imunitní funkci a absorpci železa."
+              }
+            }
+          }
+        },
+        "recommendations": [
+          "Doporučený denní příjem: 75-90 mg (1-2 pomeranče)",
+          "Nejlepší zdroje: paprika, brokolini, jahody, citrusy, kiwi",
+          "Kuřáci potřebují 35 mg navíc denně",
+          "Vitamín C se rychle rozkládá - jezte čerstvé ovoce a zeleninu",
+          "Pomáhá vstřebávání železa - kombinujte s každým jídlem",
+          "Antioxidant - chrání před poškozením volnými radikály",
+          "Podporuje tvorbu kolagenu a hojení ran"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs33972313",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
+  "vitamins_b": {
+    "name": "Vitamíny B",
+    "icon": "💊",
+    "description": "Personalizovaný průvodce vitamíny B",
+    "traits": {
+      "vitamin_b6": {
+        "name": "Vitamín B6",
+        "icon": "🥜",
+        "snps": {
+          "rs4654748": {
+            "gene": "ALPL",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "🧬 <b>Co tento gen dělá:</b> rs4654748 leží v oblasti genu <b>ALPL</b> a bývá spojován s hladinami aktivního vitamínu B6 (PLP) v krvi. Alela <b>C</b> je v GWAS slabě asociována s nižší hladinou B6.\n\n📊 <b>Genotyp TT:</b> nejvyšší pravděpodobnost normálních/vyšších hladin B6.\n\n✅ <b>Výhody:</b>\n• Pravděpodobně dobrý metabolismus B6 (efekt je ale malý)  \n• Menší riziko nízkého PLP při běžné stravě"
+              },
+              "TC": {
+                "score": "good",
+                "description": "🧬 <b>Genotyp TC:</b> střední predispozice – hladiny B6 obvykle v normě.\n\n💡 Pokud máte příznaky nedostatku (únava, neuropatie), řiďte se spíš krevním testem než genetikou."
+              },
+              "CC": {
+                "score": "average",
+                "description": "🧬 <b>Genotyp CC:</b> dvě alely C jsou spojeny s o něco nižšími krevními hladinami vitamínu B6.\n\n✅ <b>Co dělat:</b>\n• Dbejte na příjem B6 z jídla (drůbež, ryby, brambory, banány, luštěniny)  \n• Pokud krevní test ukáže nízký PLP, má smysl cíleně suplementovat."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "C": 0.6837,
+                "T": 0.3163
+              },
+              "genotypes": {
+                "CC": 0.4674,
+                "CT": 0.4325,
+                "TT": 0.1
+              },
+              "note": "European frequency from nutrition genetics cohort."
+            }
+          }
+        },
+        "recommendations": [],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs4654748",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "folate": {
+        "name": "Folát (Vitamín B9)",
+        "icon": "🥬",
+        "snps": {
+          "rs1801131": {
+            "gene": "MTHFR",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "A1298C je druhá častá varianta v MTHFR. Genotyp AA obvykle znamená standardní funkci na této pozici. Celkový dopad se hodnotí spolu s rs1801133."
+              },
+              "AC": {
+                "score": "good",
+                "description": "Jedna varianta C může lehce snižovat funkci enzymu, ale většinou bez klinického dopadu. Pokud máte zároveň variantu rs1801133, může být efekt o něco větší."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Dvě variantní alely C mohou mírně až středně snížit aktivitu MTHFR. Nejvíc má smysl sledovat homocystein a příjem folátu/B‑vitamínů – genetika sama o sobě nedává diagnózu."
+              }
+            }
+          },
+          "rs1801133": {
+            "gene": "MTHFR",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "MTHFR pomáhá převádět folát (vitamín B9) na aktivní formu, kterou tělo využívá. Genotyp AA (běžná varianta) znamená standardní aktivitu enzymu. Riziko zvýšeného homocysteinu je u vás nejnižší, ale stále záleží hlavně na stravě a dalších B‑vitamínech."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Máte jednu běžnou a jednu variantní alelu. Aktivita MTHFR může být mírně nižší, což se někdy projeví lehce vyšším homocysteinem – hlavně při nízkém příjmu folátu/B12/B6. Většina lidí s AG je bez potíží."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Máte dvě variantní alely 677T. Aktivita MTHFR může být výrazněji snížená, což u části lidí vede k vyššímu homocysteinu. Neznamená to automaticky zdravotní problém. Důležité je mít dostatek folátu, B12 a B6 a případně si nechat homocystein zkontrolovat. Pokud je homocystein vyšší nebo jste těhotná/plánujete těhotenství, může dávat smysl doplněk s 5‑MTHF (methylfolát) po domluvě s lékařem."
+              }
+            },
+            "population_frequency_eur": {
+              "CC": "≈45–55 %",
+              "CT": "≈35–45 %",
+              "TT": "≈5–15 %",
+              "note": "Velké rozdíly mezi populacemi."
+            }
+          },
+          "rs1801394": {
+            "gene": "MTRR",
+            "alleles": {
+              "AA": {
+                "score": "good",
+                "description": "Typická aktivita recyklace methionin‑syntázy v cyklu folát/B12."
+              },
+              "AG": {
+                "score": "average",
+                "description": "Mírně snížená efektivita v některých studiích, může se projevit vyšším homocysteinem při nízkém příjmu folátu/B12."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Podobně jako AG – efekt je většinou malý, ale u nízkého příjmu folátu/B12 se může homocystein zvedat."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Listová zelenina (špenát, brokolice), luštěniny, citrusy",
+          "Doporučený příjem: 400 mcg denně (těhotné: 600 mcg)",
+          "GG varianta: suplementujte methylfolát (5-MTHFR), ne kyselinu listovou",
+          "Důležitý před a během těhotenství (prevence rozštěpu páteře)",
+          "Snižuje homocystein (ochrana srdce)",
+          "Vařením se zničí až 50% folátu - jezte i syrovou zeleninu",
+          "Kontrolujte hladiny homocysteinu u lékaře"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1801131",
+              "weight": 0.7,
+              "evidence": "moderate"
+            },
+            {
+              "rsid": "rs1801133",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        },
+        "combined_rules": [
+          {
+            "name": "MTHFR/MTRR kombinované riziko homocysteinu",
+            "logic": "rs1801133 & rs1801394",
+            "evidence": "moderate",
+            "result_map": {
+              "low": {
+                "score": "good",
+                "description": "Geneticky spíš nižší riziko vyššího homocysteinu. Stále je důležitý příjem folátu a B12."
+              },
+              "medium": {
+                "score": "average",
+                "description": "Střední genetická citlivost. Při stresu, málo zeleniny nebo bez B12 může homocystein růst."
+              },
+              "high": {
+                "score": "caution",
+                "description": "Vyšší genetická citlivost na nízký folát/B12. Typicky nejvíc pomáhá pravidelná listová zelenina + dostatek B12."
+              }
+            },
+            "note": "Kombinace přidává informaci k jedné variantě zvlášť."
+          }
+        ]
+      },
+      "vitamin_b12": {
+        "name": "Vitamín B12",
+        "icon": "🥩",
+        "snps": {
+          "rs602662": {
+            "gene": "FUT2",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Normální absorpce vitamínu B12 ve střevech."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Mírně snížená absorpce B12."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Snížená absorpce vitamínu B12. Vyšší riziko nedostatku, zejména u vegetariánů a starších osob. Pravidelná kontrola hladin je důležitá."
+              }
+            },
+            "population_frequency_eur": {
+              "alleles": {
+                "A": 0.51,
+                "G": 0.49
+              },
+              "genotypes": {
+                "AA": 0.2601,
+                "AG": 0.4998,
+                "GG": 0.2401
+              },
+              "note": "European ancestry MAF ~0.49 (LD with nonsecretor allele)."
+            }
+          },
+          "rs1801198": {
+            "gene": "TCN2",
+            "alleles": {
+              "CC": {
+                "score": "good",
+                "description": "Typický transport B12 do buněk."
+              },
+              "CG": {
+                "score": "average",
+                "description": "G alela může lehce snižovat dostupný „aktivní“ B12 (holotranskobalamin). V praxi pomůže stabilní příjem B12 (maso, vejce, mléčné / suplement u vegetariánů)."
+              },
+              "GG": {
+                "score": "caution",
+                "description": "Spojeno s nižším holotranskobalaminem a někdy vyšším homocysteinem. Častěji se vyplatí hlídat B12 v krvi, zvlášť při nízkém příjmu."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Živočišné zdroje: maso, ryby, vejce, mléčné výrobky",
+          "Vegetariáni/vegani: MUSÍ suplementovat (500-1000 mcg denně)",
+          "Doporučený příjem: 2,4 mcg denně",
+          "Starší 50+ let: suplementace doporučena (snížená absorpce)",
+          "Příznaky nedostatku: únava, mravenčení, problémy s pamětí",
+          "Kontrolujte hladiny každé 1-2 roky",
+          "Sublingvální nebo injekční forma při vážném nedostatku"
+        ],
+        "evidence": "strong",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs602662",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  }
+}
