@@ -193,7 +193,7 @@
               },
               "AA": {
                 "score": "average",
-                "description": "🧬 <b>Genotyp AA:</b> dvě rizikové A alely. Průměrně vyšší tendence k energetickému příjmu a vyšší BMI (často uváděno ~20–30 % zvýšení rizika obezity oproti TT). Většina nositelů ale při dobrém životním stylu obezitu většinou ne nemá.\n\n✅ <b>Výhody:</b>\n• Není to „osud“ – pravidelný pohyb a bílkoviny/vláknina umí efekt výrazně potlačit.\n\n❌ <b>Nevýhody:</b>\n• Silnější chuť na energeticky bohatá jídla  \n• Pomalejší nástup sytosti po jídle  \n• Vyšší citlivost na spánek a stres z hlediska přejídání\n\n💡 <b>Jak s tím pracovat:</b> nejvíc pomáhá vyšší příjem bílkovin a vlákniny, pravidelný pohyb a spánková rutina."
+                "description": "🧬 <b>Genotyp AA:</b> dvě rizikové A alely. Průměrně vyšší tendence k energetickému příjmu a vyšší BMI (často uváděno ~20–30 % zvýšení rizika obezity oproti TT). Většina nositelů ale při dobrém životním stylu obezitu většinou nemá.\n\n✅ <b>Výhody:</b>\n• Není to „osud“ – pravidelný pohyb a bílkoviny/vláknina umí efekt výrazně potlačit.\n\n❌ <b>Nevýhody:</b>\n• Silnější chuť na energeticky bohatá jídla  \n• Pomalejší nástup sytosti po jídle  \n• Vyšší citlivost na spánek a stres z hlediska přejídání\n\n💡 <b>Jak s tím pracovat:</b> nejvíc pomáhá vyšší příjem bílkovin a vlákniny, pravidelný pohyb a spánková rutina."
               }
             },
             "population_frequency_eur": {
@@ -234,7 +234,7 @@
               },
               "CT": {
                 "score": "average",
-                "description": "Některé studie spojují T alelu s vyšší citlivostí na stresové jedením nebo emoční chutě. Efekt je malý, ale může se projevit při horším spánku/stresu."
+                "description": "Některé studie spojují T alelu s vyšší citlivostí ke stresovému jedení nebo emočním chutím k jídlu. Efekt je malý, ale může se projevit při horším spánku či stresu."
               },
               "TT": {
                 "score": "caution",
@@ -267,7 +267,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
@@ -734,7 +734,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
@@ -999,7 +999,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
@@ -1247,7 +1247,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
@@ -1615,7 +1615,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
@@ -1950,7 +1950,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
@@ -2126,7 +2126,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
@@ -2378,7 +2378,7 @@
     },
     "score_legend": {
       "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
-      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "good": "Spíš příznivá/neutrální varianta. Vliv je obvykle malý.",
       "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
     },
     "evidence_scale": {
