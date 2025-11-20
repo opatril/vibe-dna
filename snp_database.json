@@ -345,23 +345,6 @@
               "note": "V Asii je X alela častější, v Africe vzácnější."
             }
           },
-          "rs699": {
-            "gene": "AGT",
-            "alleles": {
-              "TT": {
-                "score": "good",
-                "description": "Varianta rs699 (M235T) souvisí hlavně s regulací krevního tlaku a reakcí cév při zátěži. Genotyp TT bývá v některých studiích spojován s o něco vyšší reakcí krevního tlaku na intenzivní výkon. Na sportovní výkon má ale jen malý a nejasný vliv."
-              },
-              "TC": {
-                "score": "good",
-                "description": "Smíšený profil. Pokud sportujete, myslete spíš na obecné věci (postupné zvyšování zátěže, regenerace). Vliv tohoto SNP na sílu/vytrvalost je malý."
-              },
-              "CC": {
-                "score": "good",
-                "description": "Genotyp CC je v některých studiích mírně častější u silově‑rychlostních sportů, ale výsledky jsou nejednotné. Berte to jako drobný „sklon“, ne jako předpověď výkonu."
-              }
-            }
-          },
           "rs17602729": {
             "gene": "AMPD1",
             "alleles": {
@@ -474,11 +457,6 @@
               "evidence": "moderate"
             },
             {
-              "rsid": "rs699",
-              "weight": 0.7,
-              "evidence": "moderate"
-            },
-            {
               "rsid": "rs17602729",
               "weight": 0.7,
               "evidence": "moderate"
@@ -523,29 +501,6 @@
               "CC": "≈16 %",
               "note": "Uvedeno v běžné populaci v publikovaných kohortách; liší se dle etnika."
             }
-          },
-          "rs1800012": {
-            "gene": "COL1A1",
-            "alleles": {
-              "TT": {
-                "score": "excellent",
-                "description": "T vzácnější varianta, která je ve více studiích spojena s nižším rizikem poranění vazů/šlach (např. ACL). Efekt je ale malý."
-              },
-              "GT": {
-                "score": "good",
-                "description": "Střední profil. Prevence zranění stojí hlavně na technice, posilování a postupném zvyšování zátěže."
-              },
-              "GG": {
-                "score": "average",
-                "description": "O něco vyšší náchylnost ke zraněním měkkých tkání ve sportu v některých studiích. Berte to jako důvod být pečlivější v prevenci – ne jako jistotu zranění."
-              }
-            },
-            "population_frequency_eur": {
-              "GG": "≈75–80 %",
-              "GT": "≈18–23 %",
-              "TT": "≈1–2 %",
-              "note": "T alela je méně častá (MAF ~9–15 % podle populace)."
-            }
           }
         },
         "recommendations": [
@@ -564,7 +519,50 @@
               "rsid": "rs12722",
               "weight": 0.7,
               "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "injury_risk": {
+        "name": "Sklon k poranění vazů/šlach",
+        "icon": "🏥",
+        "snps": {
+          "rs1800012": {
+            "gene": "COL1A1",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "T varianta bývá spojena s o něco lepší pevností kolagenu typu I a nižším rizikem poranění vazů (např. ACL) či úponů. Efekt je malý, ale může pomoci při sportu s vysokou zátěží."
+              },
+              "GT": {
+                "score": "good",
+                "description": "Smíšený profil. Prevence zranění stojí hlavně na správné technice, postupném navyšování zátěže a silovém tréninku."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Běžná varianta. Některé studie ji spojují s o něco vyšším rizikem poranění vazů/šlach při vysoké zátěži. O to víc se vyplatí pečlivá prevence."
+              }
             },
+            "population_frequency_eur": {
+              "GG": "≈75–80 %",
+              "GT": "≈18–23 %",
+              "TT": "≈1–2 %",
+              "note": "T alela je méně častá (MAF ~9–15 % podle populace)."
+            }
+          }
+        },
+        "recommendations": [
+          "Silový trénink pro hamstringy, kvadricepsy a hlezna 2–3× týdně",
+          "Postupné zvyšování objemu běhu/skoků (max +10 % týdně)",
+          "Dostatek vitaminu C a bílkovin/kolagenu pro syntézu pojiva",
+          "Dbejte na techniku dopadů a stabilitu kolen/kyčlí",
+          "Po zranění postupujte podle fyzioterapeuta a nespěchejte zpět do plné zátěže"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
             {
               "rsid": "rs1800012",
               "weight": 0.7,
@@ -687,23 +685,6 @@
               "TT": "≈10 %",
               "note": "Globálně minor alela cca 26–44 %, podle populace."
             }
-          },
-          "rs699": {
-            "gene": "AGT",
-            "alleles": {
-              "TT": {
-                "score": "good",
-                "description": "Tato varianta ovlivňuje hlavně kardiovaskulární regulaci (krevní tlak). Některé studie naznačují drobný vztah k vytrvalosti, ale efekty jsou malé."
-              },
-              "TC": {
-                "score": "good",
-                "description": "Vyvážený profil. Pro výdrž rozhoduje hlavně trénink – genetický efekt je jen doplňkový."
-              },
-              "CC": {
-                "score": "good",
-                "description": "Možný lehce „silovější“ sklon v některých studiích, pro vytrvalost to není nevýhoda. Sledujte hlavně svůj trénink a regeneraci."
-              }
-            }
           }
         },
         "recommendations": [
@@ -719,11 +700,6 @@
           "score_weights": [
             {
               "rsid": "rs8192678",
-              "weight": 0.7,
-              "evidence": "moderate"
-            },
-            {
-              "rsid": "rs699",
               "weight": 0.7,
               "evidence": "moderate"
             }
@@ -1257,6 +1233,103 @@
       "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
     }
   },
+  "methylation": {
+    "name": "Methylace a foláty",
+    "icon": "🧬",
+    "description": "Metabolismus folátů, B-vitaminů a methylace DNA",
+    "traits": {
+      "folate_metabolism": {
+        "name": "MTHFR a metabolismus folátu",
+        "icon": "🍃",
+        "snps": {
+          "rs1801133": {
+            "gene": "MTHFR",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Normální aktivita enzymu MTHFR (C677C). Obvykle dobrá konverze folátu na 5-MTHF."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Snížená aktivita (~65 % oproti CC). Často pomůže vyšší příjem listové zeleniny a B-vitaminů."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Výraznější snížení aktivity (~30 %). Častěji vyšší homocystein při nedostatku folátu/B12/B6. Důležitá je pestrá strava a případně methylfolát."
+              }
+            },
+            "evidence": "high",
+            "population_frequency_eur": {
+              "TT": "≈10–15 %",
+              "CT": "≈40–45 %",
+              "CC": "≈40–45 %",
+              "note": "Rozmezí podle evropských kohort; v jižní Evropě je T alela častější."
+            }
+          },
+          "rs1801131": {
+            "gene": "MTHFR",
+            "alleles": {
+              "AA": {
+                "score": "good",
+                "description": "Běžná varianta (A1298A) se standardní aktivitou enzymu."
+              },
+              "AC": {
+                "score": "average",
+                "description": "Mírně snížená aktivita. Prakticky pomáhá adekvátní příjem folátu/B12/B6 a omezení alkoholu."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Větší snížení aktivity A1298C. V kombinaci s C677T může více ovlivnit hladiny folátu a homocysteinu."
+              }
+            },
+            "evidence": "moderate",
+            "population_frequency_eur": {
+              "alleles": {
+                "A": 0.68,
+                "C": 0.32
+              },
+              "note": "Odhad pro Evropu z MAF ~0.32 (A/C). Genotypové frekvence se liší podle populace."
+            }
+          }
+        },
+        "recommendations": [
+          "Denně jezte listovou zeleninu, luštěniny a celozrnné obiloviny",
+          "Dbejte na příjem vitaminů B12 a B6 (vejce, maso/ryby, mléčné výrobky)",
+          "Při vyšším homocysteinu preferujte methylfolát místo syntetické kyseliny listové",
+          "Omezte nadměrný alkohol a kouření – zvyšují nároky na folát",
+          "V těhotenství nebo plánování gravidity řešte suplementaci s lékařem"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs1801133",
+              "weight": 0.7,
+              "evidence": "high"
+            },
+            {
+              "rsid": "rs1801131",
+              "weight": 0.5,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky mírně výhodnější varianta pro daný rys. Neznamená automaticky lepší zdraví, jen malý sklon.",
+      "good": "Spíš příznivá/neutralní varianta. Vliv je obvykle malý.",
+      "average": "Neutrální nebo nejčastější varianta. Vliv genu je malý nebo nejasný."
+    },
+    "evidence_scale": {
+      "high": "Silná a opakovaně potvrzená vazba (metaanalýzy/GWAS).",
+      "moderate": "Několik studií ukazuje směr efektu, ale výsledky nejsou jednotné.",
+      "low": "První nebo slabé studie; berte spíš orientačně.",
+      "emerging": "Nový nebo málo prozkoumaný SNP; informace se mohou měnit."
+    }
+  },
   "heart": {
     "name": "Zdraví srdce",
     "icon": "❤️",
@@ -1370,6 +1443,48 @@
           "score_weights": [
             {
               "rsid": "rs174546",
+              "weight": 0.7,
+              "evidence": "moderate"
+            }
+          ],
+          "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
+        }
+      },
+      "blood_pressure": {
+        "name": "Regulace krevního tlaku (AGT)",
+        "icon": "🩺",
+        "snps": {
+          "rs699": {
+            "gene": "AGT",
+            "alleles": {
+              "TT": {
+                "score": "caution",
+                "description": "Alela T (M235) bývá spojena s vyšší produkcí angiotensinogenu a u části lidí s o něco vyšším krevním tlakem či rychlejším růstem tlaku při soli/stresu. Vliv je malý, ale dává důvod hlídat prevenční návyky."
+              },
+              "TC": {
+                "score": "average",
+                "description": "Smíšený profil. Krevní tlak ovlivní hlavně životní styl (sůl, hmotnost, pohyb, stres)."
+              },
+              "CC": {
+                "score": "good",
+                "description": "C varianta (235T) je často spojena s nižší hladinou angiotensinogenu a o něco příznivějším průměrným krevním tlakem. Efekt je malý a nejvíc rozhoduje životní styl."
+              }
+            }
+          }
+        },
+        "recommendations": [
+          "Pravidelně si měřte krevní tlak (ideálně doma, 1–2× týdně)",
+          "Omezte příjem soli na ~5 g/den a preferujte čerstvé potraviny",
+          "Dostatek draslíku a hořčíku (ovoce, zelenina, luštěniny)",
+          "Aerobní aktivita alespoň 150 minut týdně, doplňte silový trénink",
+          "Při trvale zvýšených hodnotách řešte výsledek s lékařem"
+        ],
+        "evidence": "moderate",
+        "combined_score_model": {
+          "model": "weighted_sum",
+          "score_weights": [
+            {
+              "rsid": "rs699",
               "weight": 0.7,
               "evidence": "moderate"
             }
