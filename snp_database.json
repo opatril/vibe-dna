@@ -394,6 +394,10 @@
                 "score": "good",
                 "description": "Spíš příznivá aerobní kapacita s potenciálem pro zlepšení tréninkem."
               },
+              "CT": {
+                "score": "good",
+                "description": "Dobrá aerobní kapacita. Multi-alelický polymorfismus s mírně sníženou mitochondriální funkcí oproti CC, ale stále příznivý pro vytrvalostní aktivity."
+              },
               "GG": {
                 "score": "average",
                 "description": "Průměrná aerobní kapacita. Pravidelný trénink je klíčový pro zlepšení vytrvalosti."
@@ -667,6 +671,10 @@
               "CG": {
                 "score": "good",
                 "description": "Spíš příznivá vytrvalost s potenciálem pro zlepšení pravidelným tréninkem."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Dobrá vytrvalost. Multi-alelický polymorfismus s mírně sníženou mitochondriální funkcí oproti CC, ale stále dobrý potenciál pro vytrvalostní aktivity s pravidelným tréninkem."
               },
               "GG": {
                 "score": "average",

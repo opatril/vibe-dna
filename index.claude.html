@@ -716,6 +716,21 @@
             return clean.split("").sort().join("");
         }
 
+        // Reverse complement for DNA bases
+        function reverseComplement(genotype) {
+            if (!genotype) return "";
+            const complement = {
+                'A': 'T',
+                'T': 'A',
+                'C': 'G',
+                'G': 'C'
+            };
+
+            const reversed = genotype.split('').map(base => complement[base] || base).join('');
+            // Normalize (sort) the result
+            return reversed.split('').sort().join('');
+        }
+
         function parseFTDNACsv(text, onProgress) {
             const lines = text.split(/\r?\n/);
             const map = new Map();
@@ -833,7 +848,27 @@
                 normMap.set(normalizeGenotype(key), snpObj.alleles[key]);
             }
 
-            return normMap.get(ngt) || null;
+            // Try direct match first
+            let result = normMap.get(ngt);
+            let isReverseComplement = false;
+
+            // If no match, try reverse complement
+            if (!result) {
+                const revComp = reverseComplement(ngt);
+                result = normMap.get(revComp);
+                if (result) {
+                    isReverseComplement = true;
+                }
+            }
+
+            if (result) {
+                return {
+                    ...result,
+                    isReverseComplement: isReverseComplement
+                };
+            }
+
+            return null;
         }
 
         function computeTraitScore(trait, snpsMap) {
@@ -880,7 +915,8 @@
                         genotype: gt,
                         score: score,
                         description: allele?.description || "Genotyp v databázi nemá specifický popis.",
-                        evidence: snpObj.evidence || trait.evidence || "moderate"
+                        evidence: snpObj.evidence || trait.evidence || "moderate",
+                        isReverseComplement: allele?.isReverseComplement || false
                     });
                 } else {
                     perSnp.push({
@@ -1147,11 +1183,17 @@
             let html = '';
             for (const snp of snps) {
                 if (snp.genotype) {
+                    const strandIndicator = snp.isReverseComplement
+                        ? '<span style="color: #a5b4fc; font-size: 0.75rem; margin-left: 0.5rem;" title="Genotyp byl automaticky převeden na opačnou orientaci DNA vlákna">🔄 RC</span>'
+                        : '';
+
                     html += `
                         <div class="snp-info">
                             <div class="snp-header">
                                 <span class="gene-name">${snp.gene} (${snp.rsid})</span>
-                                <span class="genotype">${snp.genotype}</span>
+                                <span>
+                                    <span class="genotype">${snp.genotype}</span>${strandIndicator}
+                                </span>
                             </div>
                             <div style="color: #d1d5db; margin-top: 0.5rem;">
                                 ${snp.description}
