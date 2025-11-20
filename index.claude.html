@@ -716,6 +716,18 @@
             return clean.split("").sort().join("");
         }
 
+        function complementGenotype(gt) {
+            const COMPLEMENTS = { A: "T", T: "A", C: "G", G: "C" };
+            const clean = normalizeGenotype(gt);
+            if (clean.length !== 2) return clean;
+
+            return clean
+                .split("")
+                .map(base => COMPLEMENTS[base] || base)
+                .sort()
+                .join("");
+        }
+
         function parseFTDNACsv(text, onProgress) {
             const lines = text.split(/\r?\n/);
             const map = new Map();
@@ -830,7 +842,15 @@
             const normMap = new Map();
 
             for (const key of Object.keys(snpObj.alleles)) {
-                normMap.set(normalizeGenotype(key), snpObj.alleles[key]);
+                const normalized = normalizeGenotype(key);
+                const alleleEntry = snpObj.alleles[key];
+
+                normMap.set(normalized, alleleEntry);
+
+                const complement = complementGenotype(normalized);
+                if (complement && complement !== normalized) {
+                    normMap.set(complement, alleleEntry);
+                }
             }
 
             return normMap.get(ngt) || null;
