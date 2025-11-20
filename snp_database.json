@@ -2647,5 +2647,82 @@
       "high": "Silná evidence.",
       "moderate": "Střední evidence."
     }
+  },
+  "behavior": {
+    "name": "Mysl a Chování",
+    "icon": "🧠",
+    "description": "Neurotransmitéry, stres a biorytmy",
+    "traits": {
+      "stress_response": {
+        "name": "Zvládání stresu (COMT)",
+        "icon": "⚡",
+        "snps": {
+          "rs4680": {
+            "gene": "COMT",
+            "alleles": {
+              "GG": {
+                "score": "good",
+                "description": "🛡️ <b>Typ Válečník (Warrior):</b> Vaše enzymy rozkládají dopamin a adrenalin velmi rychle.\n\n✅ <b>Super-schopnost:</b> Excelujete pod tlakem. Krizové situace vás nerozhodí, naopak vás 'nakopnou'. Máte hroší kůži.\n\n❌ <b>Slabina:</b> V klidovém režimu můžete mít nižší motivaci nebo horší soustředění (dopamin zmizí příliš rychle)."
+              },
+              "AG": {
+                "score": "excellent",
+                "description": "⚖️ <b>Smíšený typ:</b> Máte to nejlepší z obou světů. Dokážete se soustředit v klidu, ale v krizi se nezhroutíte tak rychle jako Stratégové."
+              },
+              "AA": {
+                "score": "average",
+                "description": "♟️ <b>Typ Stratég (Worrier):</b> Vaše enzymy rozkládají dopamin pomalu, takže vám v mozku zůstává déle.\n\n✅ <b>Super-schopnost:</b> V klidu máte vynikající paměť, pozornost k detailům a komplexní myšlení. Jste přirozeně kreativní.\n\n❌ <b>Slabina:</b> Stres je váš nepřítel. Pod tlakem hladina dopaminu 'přeteče' a způsobí úzkost nebo 'zatuhnutí'."
+              }
+            },
+            "evidence": "high",
+            "fun_fact": "Genotyp AA (Stratég) je evolučně mladší. Předpokládá se, že se rozšířil s nástupem civilizace, kdy začalo být plánování a komplexní myšlení důležitější než okamžitá fyzická reakce na ohrožení."
+          }
+        },
+        "recommendations": [
+          "Válečník (GG): Potřebujete vnější stimulaci a termíny, abyste podali výkon.",
+          "Stratég (AA): Před výkonem se vyhněte kofeinu (zvyšuje už tak vysoký dopamin/stres).",
+          "Stratég (AA): Dbejte na hořčík a B-komplex pro podporu nervové soustavy."
+        ],
+        "evidence": "high"
+      },
+      "chronotype": {
+        "name": "Ranní ptáče vs Noční sova",
+        "icon": "⏰",
+        "snps": {
+          "rs1801260": {
+            "gene": "CLOCK",
+            "alleles": {
+              "TT": {
+                "score": "good",
+                "description": "🌅 <b>Ranní ptáče:</b> Váš cirkadiánní rytmus je nastaven 'dopředu'. Pravděpodobně se vám lépe vstává ráno a nejlepší výkon podáváte v první polovině dne. Večer jste dříve unavení."
+              },
+              "TC": {
+                "score": "average",
+                "description": "⚖️ <b>Neutrální chronotyp:</b> Jste flexibilní. Nemáte extrémní preferenci pro ráno ani večer a dokážete se lépe přizpůsobit společenským požadavkům."
+              },
+              "CC": {
+                "score": "average",
+                "description": "🦉 <b>Noční sova:</b> Váš vnitřní den je delší. Rána jsou pro vás těžká, ale večer 'oživnete'. Nejlepší mentální výkon podáváte pozdě odpoledne nebo v noci."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Respektujte svůj biologický rytmus, pokud je to možné.",
+          "Noční sovy: Vyhněte se modrému světlu (mobily, PC) 2 hodiny před spaním, abyste posunuli rytmus.",
+          "Ranní ptáčata: Využijte ranní hodiny pro nejtěžší úkoly."
+        ],
+        "evidence": "moderate"
+      }
+    },
+    "score_legend": {
+      "excellent": "Geneticky výhodná/vyvážená varianta.",
+      "good": "Specifická výhoda v určitém kontextu.",
+      "average": "Standardní varianta s jasnými silnými i slabými stránkami."
+    },
+    "evidence_scale": {
+      "high": "Silná evidence.",
+      "moderate": "Střední evidence."
+    }
   }
 }
