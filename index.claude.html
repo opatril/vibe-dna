@@ -1108,7 +1108,7 @@
                         description: allele?.description || "Genotyp v databázi nemá specifický popis.",
                         evidence: snpObj.evidence || trait.evidence || "moderate",
                         isReverseComplement: allele?.isReverseComplement || false,
-                        populationFrequency: snpObj.population_frequency_eur || null
+                        populationFrequency: snpObj.population_frequency_eur || null,
                         weight: w.weight,
                         weightEvidence: w.evidence,
                         partOfCombinedScore: Boolean(trait.combined_score_model?.score_weights?.length)
@@ -1121,7 +1121,7 @@
                         score: null,
                         description: "SNP nebyl v nahraném souboru nalezen.",
                         evidence: snpObj?.evidence || trait.evidence || "moderate",
-                        populationFrequency: snpObj?.population_frequency_eur || null
+                        populationFrequency: snpObj?.population_frequency_eur || null,
                         weight: w.weight,
                         weightEvidence: w.evidence,
                         partOfCombinedScore: Boolean(trait.combined_score_model?.score_weights?.length)
@@ -1197,7 +1197,6 @@
                         };
                     }
                 }
-            }
             }
 
             document.getElementById('total-markers').textContent = userData.size.toLocaleString();
