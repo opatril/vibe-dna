@@ -493,16 +493,16 @@
                             🗂️ Načtení databáze SNP
                         </h2>
 
-                        <div style="background: rgba(79, 70, 229, 0.1); border: 1px solid #4f46e5; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem;">
+                        <div id="db-status-message" style="background: rgba(79, 70, 229, 0.1); border: 1px solid #4f46e5; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem;">
                             <div style="font-size: 0.875rem; color: #d1d5db;">
-                                <p style="margin-bottom: 0.5rem;"><strong>Požadovaný soubor:</strong></p>
+                                <p style="margin-bottom: 0.5rem;"><strong>Načítání databáze...</strong></p>
                                 <p style="margin: 0; font-size: 0.8125rem; color: #9ca3af;">
-                                    Nahrajte soubor <code style="background: rgba(0,0,0,0.3); padding: 0.125rem 0.375rem; border-radius: 0.25rem;">snp_database.json</code> s genetickou databází
+                                    Probíhá automatické stahování databáze z GitHub
                                 </p>
                             </div>
                         </div>
 
-                        <div id="drop-zone-db" class="drop-zone" style="padding: 2rem; text-align: center; border-radius: 0.5rem; background: #111827;">
+                        <div id="drop-zone-db" class="drop-zone hidden" style="padding: 2rem; text-align: center; border-radius: 0.5rem; background: #111827;">
                             <div style="font-size: 2rem; margin-bottom: 0.5rem;">📁</div>
                             <div style="font-weight: 600; margin-bottom: 0.25rem;">Klikněte nebo přetáhněte databázi sem</div>
                             <div style="font-size: 0.875rem; color: #9ca3af;">Formát: snp_database.json</div>
@@ -631,6 +631,70 @@
         // =====================================================
         // DATABASE LOADING
         // =====================================================
+
+        async function loadDatabaseFromGitHub() {
+            const GITHUB_DB_URL = 'https://raw.githubusercontent.com/marekopatril/vibe-dna/refs/heads/main/snp_database.json';
+            const statusMessage = document.getElementById('db-status-message');
+            const dropZone = document.getElementById('drop-zone-db');
+
+            try {
+                statusMessage.innerHTML = `
+                    <div style="font-size: 0.875rem; color: #d1d5db;">
+                        <p style="margin-bottom: 0.5rem;"><strong>Načítání databáze...</strong></p>
+                        <p style="margin: 0; font-size: 0.8125rem; color: #9ca3af;">
+                            Probíhá automatické stahování databáze z GitHub
+                        </p>
+                    </div>
+                `;
+
+                const response = await fetch(GITHUB_DB_URL);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+
+                const json = await response.json();
+
+                if (!json || typeof json !== "object") {
+                    throw new Error("Invalid JSON format");
+                }
+
+                SNP_DATABASE = json;
+
+                // Success - show success message briefly then proceed to CSV upload
+                statusMessage.innerHTML = `
+                    <div style="font-size: 0.875rem; color: #10b981;">
+                        <p style="margin-bottom: 0.5rem;"><strong>✓ Databáze úspěšně načtena z GitHub</strong></p>
+                        <p style="margin: 0; font-size: 0.8125rem; color: #9ca3af;">
+                            Databáze byla automaticky stažena a je připravena k použití
+                        </p>
+                    </div>
+                `;
+
+                // After 2 seconds, transition to CSV upload
+                setTimeout(() => {
+                    document.getElementById('db-upload-section').classList.add('hidden');
+                    document.getElementById('csv-upload-section').classList.remove('hidden');
+                    buildSidebar();
+                }, 2000);
+
+            } catch (error) {
+                // Failed - show upload option
+                console.error('Failed to load database from GitHub:', error);
+
+                statusMessage.innerHTML = `
+                    <div style="font-size: 0.875rem; color: #f59e0b;">
+                        <p style="margin-bottom: 0.5rem;"><strong>⚠ Automatické načtení se nezdařilo</strong></p>
+                        <p style="margin: 0; font-size: 0.8125rem; color: #9ca3af;">
+                            Nepodařilo se stáhnout databázi z GitHub (${error.message}). Prosím nahrajte soubor <code style="background: rgba(0,0,0,0.3); padding: 0.125rem 0.375rem; border-radius: 0.25rem;">snp_database.json</code> ručně níže.
+                        </p>
+                    </div>
+                `;
+
+                // Show the upload drop zone
+                dropZone.classList.remove('hidden');
+            }
+        }
 
         function handleDbFile(file) {
             const reader = new FileReader();
@@ -1432,6 +1496,13 @@
         document.getElementById('mobile-menu-toggle').addEventListener('click', () => {
             document.getElementById('sidebar').classList.toggle('mobile-open');
         });
+
+        // =====================================================
+        // INITIALIZATION
+        // =====================================================
+
+        // Try to load database from GitHub when page loads
+        loadDatabaseFromGitHub();
     </script>
 </body>
 </html>
