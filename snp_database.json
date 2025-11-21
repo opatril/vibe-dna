@@ -264,6 +264,392 @@
           ],
           "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
         }
+      },
+      "oxidative_stress": {
+        "name": "Oxidativní stres",
+        "icon": "🛡️",
+        "snps": {
+          "rs4880": {
+            "gene": "SOD2",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Ala/Ala varianta. Vyšší efektivita enzymu SOD2 při transportu do mitochondrií. Máte geneticky silnější antioxidační obranu."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Val/Ala varianta. Střední efektivita antioxidační ochrany. Dbejte na příjem antioxidantů."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Val/Val varianta. Snížený transport enzymu SOD2. Můžete být citlivější na oxidativní stres. Důležitý je vysoký příjem antioxidantů (bobuloviny, zelený čaj)."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Val/Ala varianta. Střední efektivita antioxidační ochrany. Dbejte na příjem antioxidantů."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Val/Val varianta. Snížený transport enzymu SOD2. Můžete být citlivější na oxidativní stres. Důležitý je vysoký příjem antioxidantů (bobuloviny, zelený čaj)."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Zvyšte příjem potravin bohatých na antioxidanty (borůvky, kakao, zelený čaj)",
+          "Dbejte na dostatek manganu (ořechy, luštěniny) - kofaktor SOD2",
+          "Vyhněte se nadměrnému slunění bez ochrany",
+          "Omezte kouření a alkohol - hlavní zdroje volných radikálů"
+        ],
+        "evidence": "high"
+      },
+      "saturated_fat": {
+        "name": "Citlivost na nasycené tuky",
+        "icon": "🥩",
+        "snps": {
+          "rs5082": {
+            "gene": "APOA2",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Nízké riziko přibírání na váze při konzumaci nasycených tuků. Vaše tělo je efektivně zpracovává."
+              },
+              "AA": {
+                 "score": "excellent",
+                 "description": "Nízké riziko přibírání na váze při konzumaci nasycených tuků. Vaše tělo je efektivně zpracovává."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Střední citlivost. S nasycenými tuky to nepřehánějte."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Zvýšené riziko obezity při vysokém příjmu nasycených tuků (>22g denně). Omezte tučné maso, máslo a smetanu."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Zvýšené riziko obezity při vysokém příjmu nasycených tuků (>22g denně). Omezte tučné maso, máslo a smetanu."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Pokud máte rizikovou variantu, omezte nasycené tuky na <7% příjmu",
+          "Nahraďte máslo olivovým olejem",
+          "Volte libové maso a nízkotučné mléčné výrobky",
+          "Sledujte svůj BMI"
+        ],
+        "evidence": "high"
+      },
+      "carb_sensitivity": {
+        "name": "Citlivost na sacharidy",
+        "icon": "🥐",
+        "snps": {
+          "rs2943641": {
+            "gene": "IRS1",
+            "alleles": {
+              "TT": {
+                "score": "excellent",
+                "description": "Normální citlivost na inzulín. Vaše tělo efektivně zpracovává sacharidy."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Mírně snížená citlivost na inzulín. Preferujte komplexní sacharidy."
+              },
+              "CC": {
+                "score": "average",
+                "description": "Snížená citlivost na inzulín. Zvýšené riziko inzulínové rezistence. Omezte jednoduché cukry a rafinované sacharidy."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Preferujte potraviny s nízkým glykemickým indexem",
+          "Kombinujte sacharidy s bílkovinami a vlákninou",
+          "Pravidelný pohyb zlepšuje citlivost na inzulín",
+          "Vyhněte se slazeným nápojům"
+        ],
+        "evidence": "moderate"
+      },
+      "liver_health": {
+        "name": "Zdraví jater a metabolismus",
+        "icon": "🥗",
+        "snps": {
+           "rs738409": {
+             "gene": "PNPLA3",
+             "alleles": {
+               "CC": {
+                 "score": "excellent",
+                 "description": "Normální metabolismus tuků v játrech. Nízké genetické riziko ztučnění jater."
+               },
+               "CG": {
+                 "score": "good",
+                 "description": "Mírně zvýšené riziko hromadění tuku v játrech. Omezte alkohol a přidaný cukr."
+               },
+               "GG": {
+                 "score": "caution",
+                 "description": "Výrazně zvýšené riziko ztučnění jater (NAFLD). Vaše játra jsou citlivá na cukr a alkohol."
+               }
+             },
+             "evidence": "high"
+           }
+        },
+        "recommendations": [
+           "Omezte alkohol na minimum",
+           "Vyhněte se fruktóze v nápojích a sladkostech",
+           "Udržujte zdravou váhu - viscerální tuk škodí játrům",
+           "Káva může mít ochranný vliv na játra"
+        ],
+        "evidence": "high"
+      },
+      "salt_sensitivity": {
+        "name": "Citlivost na sůl",
+        "icon": "🧂",
+        "snps": {
+          "rs356219": {
+            "gene": "ADD1",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Nízká genetická citlivost na sůl. Váš krevní tlak pravděpodobně nereaguje dramaticky na příjem sodíku."
+              },
+              "TT": {
+                "score": "excellent",
+                "description": "Nízká genetická citlivost na sůl. Váš krevní tlak pravděpodobně nereaguje dramaticky na příjem sodíku."
+              },
+              "AG": {
+                "score": "average",
+                "description": "Střední citlivost na sůl. Doporučuje se nepřekračovat 5g soli denně."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Střední citlivost na sůl. Doporučuje se nepřekračovat 5g soli denně."
+              },
+              "GG": {
+                "score": "caution",
+                "description": "Vysoká citlivost na sůl. Nadměrný příjem sodíku u vás výrazně zvyšuje riziko vysokého tlaku."
+              },
+              "CC": {
+                "score": "caution",
+                "description": "Vysoká citlivost na sůl. Nadměrný příjem sodíku u vás výrazně zvyšuje riziko vysokého tlaku."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Sledujte příjem skryté soli v polotovarech a pečivu",
+          "Používejte bylinky místo soli",
+          "Dbejte na dostatek draslíku (banány, brambory), který vyvažuje sodík"
+        ],
+        "evidence": "moderate"
+      },
+      "glucose_metabolism": {
+        "name": "Metabolismus glukózy",
+        "icon": "📉",
+        "snps": {
+          "rs7903146": {
+            "gene": "TCF7L2",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Ochranná varianta. Máte geneticky silnou schopnost sekrece inzulínu a nízké riziko diabetu 2. typu."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Mírně zvýšené riziko. Dbejte na prevenci inzulínové rezistence pohybem a stravou."
+              },
+              "TT": {
+                "score": "caution",
+                "description": "Riziková varianta spojená s nižší sekrecí inzulínu. Je klíčové udržovat zdravou váhu a nízký glykemický index stravy."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Pravidelný pohyb je pro tento gen nejlepším lékem",
+          "Vyhněte se nárazovým velkým dávkám cukru",
+          "Dbejte na kvalitní spánek (nedostatek spánku zhoršuje funkci TCF7L2)"
+        ],
+        "evidence": "high"
+      },
+      "detoxification": {
+        "name": "Detoxikace (GSTP1)",
+        "icon": "♻️",
+        "snps": {
+          "rs1695": {
+            "gene": "GSTP1",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Ile/Ile. Normální aktivita enzymu. Efektivní odstraňování xenobiotik a karcinogenů."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Ile/Val. Mírně snížená aktivita enzymu při vyšších teplotách nebo zátěži."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Val/Val. Snížená kapacita detoxikace, zejména při oxidačním stresu. Důležitý je příjem brukvovité zeleniny."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Jezte brokolici, kapustu a květák (podporují GST enzymy)",
+          "Omezte vystavení průmyslovým chemikáliím a znečištění",
+          "Sauna může podpořit vylučování toxinů"
+        ],
+        "evidence": "high"
+      },
+      "inflammation": {
+        "name": "Zánětlivá reakce (TNF)",
+        "icon": "🔥",
+        "snps": {
+          "rs1800629": {
+            "gene": "TNF",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Normální hladina TNF-alfa. Standardní zánětlivá odpověď imunitního systému."
+              },
+              "GA": {
+                "score": "average",
+                "description": "Mírně zvýšená produkce zánětlivých cytokinů. Vhodná je protizánětlivá strava."
+              },
+              "AA": {
+                "score": "caution",
+                "description": "Zvýšená produkce TNF-alfa. Vyšší sklon k chronickým zánětům. Důraz na Omega-3 a zdravý životní styl."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Omega-3 mastné kyseliny snižují zánět",
+          "Kurkuma a zázvor jsou přírodní protizánětlivé prostředky",
+          "Dostatek spánku je klíčový pro regulaci imunity"
+        ],
+        "evidence": "high"
+      },
+      "pesticide_sensitivity": {
+        "name": "Citlivost na pesticidy (PON1)",
+        "icon": "🍏",
+        "snps": {
+          "rs662": {
+            "gene": "PON1",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Rychlý metabolizér. Váš enzym efektivně rozkládá organofosfáty."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Střední aktivita enzymu."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Pomalý metabolizér. Váš enzym rozkládá některé pesticidy pomaleji. Je pro vás důležitější vybírat BIO potraviny nebo důkladně mýt ovoce/zeleninu."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Pomalý metabolizér. Váš enzym rozkládá některé pesticidy pomaleji. Je pro vás důležitější vybírat BIO potraviny nebo důkladně mýt ovoce/zeleninu."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Důkladně omývejte ovoce a zeleninu (voda s jedlou sodou)",
+          "U 'Dirty Dozen' (jahody, špenát) preferujte BIO kvalitu",
+          "Podporujte játra ostropestřcem"
+        ],
+        "evidence": "moderate"
+      },
+      "selenium_need": {
+        "name": "Potřeba selenu (GPX1)",
+        "icon": "nuts",
+        "snps": {
+          "rs1050450": {
+            "gene": "GPX1",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Pro/Pro. Vysoká aktivita enzymu i při běžném příjmu selenu."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Pro/Leu. Mírně snížená aktivita. Dbejte na dostatečný příjem selenu."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Leu/Leu. Snížená aktivita antioxidačního enzymu. Zvýšená potřeba selenu pro optimální ochranu buněk."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Pro/Leu. Mírně snížená aktivita. Dbejte na dostatečný příjem selenu."
+              },
+              "AA": {
+                 "score": "average",
+                 "description": "Leu/Leu. Snížená aktivita antioxidačního enzymu. Zvýšená potřeba selenu pro optimální ochranu buněk."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Para ořechy jsou nejlepším zdrojem selenu (stačí 1-2 denně)",
+          "Ryby a mořské plody",
+          "Selen podporuje funkci štítné žlázy"
+        ],
+        "evidence": "moderate"
+      },
+      "coq10": {
+        "name": "Aktivace CoQ10 (NQO1)",
+        "icon": "🔋",
+        "snps": {
+          "rs1800566": {
+            "gene": "NQO1",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Plně funkční enzym. Efektivní aktivace koenzymu Q10 a ochrana před chinony."
+              },
+              "CC": {
+                "score": "excellent",
+                "description": "Plně funkční enzym. Efektivní aktivace koenzymu Q10 a ochrana před chinony."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Snížená aktivita enzymu. Vhodná suplementace aktivní formou CoQ10 (ubiquinol)."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Snížená aktivita enzymu. Vhodná suplementace aktivní formou CoQ10 (ubiquinol)."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Nulová aktivita enzymu NQO1. Výrazně snížená schopnost aktivovat CoQ10. Doporučuje se přímá suplementace ubiquinolem, zejména ve vyšším věku."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Nulová aktivita enzymu NQO1. Výrazně snížená schopnost aktivovat CoQ10. Doporučuje se přímá suplementace ubiquinolem, zejména ve vyšším věku."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Zvažte suplementaci Ubiquinolem (aktivní CoQ10) po 40. roce",
+          "Jezte brukvovitou zeleninu (sulforafan indukuje NQO1)",
+          "Ochrana před benzenem a výfukovými plyny je pro vás důležitější"
+        ],
+        "evidence": "high"
       }
     },
     "score_legend": {
@@ -1222,6 +1608,36 @@
           ],
           "how_to_use": "Kombinované skóre se počítá jako vážený součet jednotlivých SNP skóre (excellent=2, good=1, average=0). Váhy vycházejí z evidence (high > moderate > low > emerging)."
         }
+      },
+      "skin_elasticity": {
+        "name": "Elasticita kůže (EGF)",
+        "icon": "🧬",
+        "snps": {
+          "rs4444903": {
+            "gene": "EGF",
+            "alleles": {
+              "AA": {
+                "score": "average",
+                "description": "Nižší hladina epidermálního růstového faktoru (EGF). Může souviset s tenčí kůží a nižší elasticitou. Důležitá je hydratace a péče."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Střední hladina EGF. Normální regenerace a elasticita pleti."
+              },
+              "GG": {
+                "score": "excellent",
+                "description": "Vyšší hladina EGF. Často spojováno s lepší elasticitou kůže a rychlejším hojením."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Používejte kosmetiku s peptidy a růstovými faktory",
+          "Mikrojehličkování (microneedling) může podpořit vlastní EGF",
+          "Dostatek bílkovin ve stravě pro regeneraci tkání"
+        ],
+        "evidence": "moderate"
       }
     },
     "score_legend": {
@@ -2635,6 +3051,66 @@
         ],
         "evidence": "high",
         "fun_fact": "Tzv. 'supertasters' mají na jazyku více chuťových pohárků. Často jsou štíhlejší, protože jim nechutnají tučná a sladká jídla, ale zároveň se vyhýbají zdravé hořké zelenině."
+      },
+      "histamine": {
+        "name": "Histaminová intolerance",
+        "icon": "🤧",
+        "snps": {
+          "rs10156191": {
+            "gene": "AOC1",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Normální aktivita enzymu DAO. Vaše tělo efektivně odbourává histamin z potravy."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Mírně snížená aktivita DAO. Většinou bez potíží, ale při velkém množství histaminu (červené víno, zrající sýry) můžete cítit příznaky."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Snížená produkce enzymu DAO. Můžete mít sklon k histaminové intoleranci (bolesti hlavy, vyrážky po jídle)."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Pokud máte potíže, omezte zrající sýry, uzeniny a červené víno",
+          "Vitamin B6, C a měď jsou kofaktory pro enzym DAO",
+          "Čerstvé potraviny mají nejméně histaminu"
+        ],
+        "evidence": "moderate"
+      },
+      "gluten": {
+        "name": "Reakce na lepek",
+        "icon": "🍞",
+        "snps": {
+          "rs2395185": {
+            "gene": "HLA-DQ",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Nízké genetické riziko celiakie. Pravděpodobně nenesete hlavní rizikové varianty HLA-DQ2.5."
+              },
+              "GT": {
+                "score": "good",
+                "description": "Mírně zvýšené riziko (nosič). Samo o sobě neznamená celiakii, ta se rozvine jen u malého zlomku nosičů."
+              },
+              "TT": {
+                "score": "average",
+                "description": "Vyšší genetická predispozice. Jste nositelem variant spojených s celiakií. Pokud máte zažívací potíže, nechte si udělat krevní testy na protilátky."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Genetika určuje pouze riziko, ne diagnózu",
+          "Pokud nemáte potíže, není důvod lepek vysazovat",
+          "Kvalitní kváskové pečivo je stravitelnější než průmyslové"
+        ],
+        "evidence": "high"
       }
     },
     "score_legend": {
@@ -2713,6 +3189,228 @@
           "Ranní ptáčata: Využijte ranní hodiny pro nejtěžší úkoly."
         ],
         "evidence": "moderate"
+      },
+      "social_bonding": {
+        "name": "Sociální vazby a empatie",
+        "icon": "🤝",
+        "snps": {
+          "rs53576": {
+            "gene": "OXTR",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "Vyšší citlivost na oxytocin. Často spojováno s vyšší empatií, optimismem a lepší schopností zvládat stres sociální oporou."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Smíšený profil. Střední míra empatie a sociální citlivosti."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Snížená citlivost na oxytocin. Můžete být více analytičtí a méně závislí na sociálním potvrzení, ale také citlivější na stres v osamění."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Pěstujte kvalitní vztahy - jsou pro vás zdrojem odolnosti",
+          "Fyzický kontakt (objetí) zvyšuje váš oxytocin",
+          "Pokud jste 'AA', nenechte se nutit do přílišné socializace, pokud vás vyčerpává",
+          "Praktikujte laskavost a dobrovolnictví"
+        ],
+        "evidence": "moderate"
+      },
+      "motivation": {
+        "name": "Motivace a dopamin",
+        "icon": "🎯",
+        "snps": {
+          "rs1800497": {
+            "gene": "ANKK1/DRD2",
+            "alleles": {
+              "GG": {
+                "score": "excellent",
+                "description": "A2/A2. Normální hustota dopaminových receptorů. Stabilní motivace a pocit uspokojení z běžných aktivit."
+              },
+              "CC": {
+                "score": "excellent",
+                "description": "A2/A2. Normální hustota dopaminových receptorů. Stabilní motivace a pocit uspokojení z běžných aktivit."
+              },
+              "AG": {
+                "score": "good",
+                "description": "A1/A2. Mírně snížená hustota receptorů. Můžete mít tendenci vyhledávat nové podněty, jídlo nebo intenzivní zážitky pro zvýšení dopaminu."
+              },
+              "CT": {
+                "score": "good",
+                "description": "A1/A2. Mírně snížená hustota receptorů. Můžete mít tendenci vyhledávat nové podněty, jídlo nebo intenzivní zážitky pro zvýšení dopaminu."
+              },
+              "AA": {
+                "score": "average",
+                "description": "A1/A1. Snížená hustota dopaminových receptorů (Reward Deficiency). Častější vyhledávání odměn, impulzivita nebo potřeba silnějších stimulů pro pocit uspokojení."
+              },
+              "TT": {
+                "score": "average",
+                "description": "A1/A1. Snížená hustota dopaminových receptorů (Reward Deficiency). Častější vyhledávání odměn, impulzivita nebo potřeba silnějších stimulů pro pocit uspokojení."
+              }
+            },
+            "evidence": "high"
+          }
+        },
+        "recommendations": [
+          "Dopaminový detox: občas omezte levné zdroje dopaminu (sociální sítě, cukr)",
+          "Studená sprcha a cvičení přirozeně zvyšují dopamin",
+          "L-tyrosin (v mase, vejcích) je prekurzorem dopaminu"
+        ],
+        "evidence": "high"
+      },
+      "pain_resilience": {
+        "name": "Odolnost vůči bolesti a stresu",
+        "icon": "🧘",
+        "snps": {
+          "rs1799971": {
+            "gene": "OPRM1",
+            "alleles": {
+              "AA": {
+                "score": "excellent",
+                "description": "Standardní citlivost opioidních receptorů. Máte dobrou toleranci vůči fyzické bolesti i sociálnímu stresu (odmítnutí)."
+              },
+              "AG": {
+                "score": "good",
+                "description": "Mírně zvýšená citlivost na bolest a sociální stres. Můžete potřebovat více času na zotavení z emočních zranění."
+              },
+              "GG": {
+                "score": "average",
+                "description": "Vyšší citlivost na bolest a sociální odmítnutí. Emocionální a fyzická bolest se u vás zpracovávají intenzivněji."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Nepodceňujte vliv sociálního stresu na vaše fyzické zdraví",
+          "Mindfulness a meditace pomáhají regulovat vnímání bolesti",
+          "Endorfiny z cvičení jsou pro vás skvělým přírodním analgetikem"
+        ],
+        "evidence": "moderate"
+      },
+      "relaxation": {
+        "name": "Relaxace a úzkost (FAAH)",
+        "icon": "😌",
+        "snps": {
+          "rs324420": {
+            "gene": "FAAH",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Varianta 'Chill'. Snížená aktivita enzymu FAAH znamená více anandamidu (molekuly blaženosti) v mozku. Jste přirozeně klidnější a méně úzkostní."
+              },
+              "AC": {
+                "score": "good",
+                "description": "Smíšený profil. Máte vyváženou hladinu anandamidu. Většinou zvládáte stres dobře, ale nejste imunní vůči úzkosti."
+              },
+              "AA": {
+                "score": "average",
+                "description": "Vyšší aktivita FAAH, rychlejší odbourávání anandamidu. Můžete mít vyšší sklon k úzkosti a hůře relaxovat pod tlakem."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "CBD může pomoci blokovat enzym FAAH a zvýšit anandamid",
+          "Fyzická aktivita zvyšuje hladinu endokanabinoidů",
+          "Relaxační techniky jsou pro vás klíčové"
+        ],
+        "evidence": "moderate"
+      },
+      "stress_resilience": {
+        "name": "Odolnost vůči traumatu (FKBP5)",
+        "icon": "🛡️",
+        "snps": {
+          "rs1360780": {
+            "gene": "FKBP5",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Vysoká odolnost. Váš systém regulace kortizolu se po stresu rychle vrací do normálu. Máte nižší riziko dlouhodobých následků stresu."
+              },
+              "CT": {
+                "score": "average",
+                "description": "Zvýšená citlivost na stres. Hladina kortizolu může zůstat zvýšená déle po stresové události."
+              },
+              "TT": {
+                "score": "caution",
+                "description": "Vysoká reaktivita na stres. Vaše tělo má tendenci reagovat na stresové události intenzivněji a déle. Dbejte na psychohygienu."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Dbejte na dostatek spánku pro regulaci kortizolu",
+          "Vyhněte se kofeinu v době vysokého stresu",
+          "Dechová cvičení pomáhají snížit akutní stresovou reakci"
+        ],
+        "evidence": "moderate"
+      },
+      "mood_stability": {
+        "name": "Nálada a serotonin (HTR1A)",
+        "icon": "🎭",
+        "snps": {
+          "rs6295": {
+            "gene": "HTR1A",
+            "alleles": {
+              "CC": {
+                "score": "excellent",
+                "description": "Ochranná varianta. Efektivní regulace serotoninu, nižší predispozice k depresivním náladám."
+              },
+              "CG": {
+                "score": "average",
+                "description": "Střední citlivost. Vliv má hlavně prostředí a životní styl."
+              },
+              "GG": {
+                "score": "caution",
+                "description": "Genetická predispozice k nižší hladině serotoninu v synapsích. Můžete být náchylnější k poklesům nálady, zejména při stresu."
+              }
+            },
+            "evidence": "moderate"
+          }
+        },
+        "recommendations": [
+          "Vystavujte se dennímu světlu (podpora serotoninu)",
+          "Tryptofan ve stravě (krůtí maso, ořechy)",
+          "Pravidelný režim je pro vaši náladu kotvou"
+        ],
+        "evidence": "moderate"
+      },
+      "impulsivity": {
+        "name": "Impulzivita (HTR2A)",
+        "icon": "⚡",
+        "snps": {
+          "rs6311": {
+            "gene": "HTR2A",
+            "alleles": {
+              "CC": {
+                "score": "average",
+                "description": "Často spojováno s vyšší hustotou receptorů. Může souviset s vyšší emoční intenzitou."
+              },
+              "CT": {
+                "score": "good",
+                "description": "Smíšený profil. Průměrná regulace emočních reakcí."
+              },
+              "TT": {
+                "score": "excellent",
+                "description": "Nižší hustota receptorů, často spojováno s klidnějším temperamentem a nižší impulzivitou."
+              }
+            },
+            "evidence": "low"
+          }
+        },
+        "recommendations": [
+          "Trénujte mindfulness pro zvládání impulzů",
+          "Vyhněte se rozhodování ve chvílích silných emocí"
+        ],
+        "evidence": "low"
       }
     },
     "score_legend": {
