@@ -252,7 +252,7 @@
           "Spěte dostatečně (7-9 hodin) - nedostatek spánku zvyšuje hlad"
         ],
         "fun_fact": "Zkratka genu FTO původně znamenala 'Fused Toes' (srostlé prsty), protože vědci ho poprvé objevili u myší, které měly srostlé prstíky. Až později se zjistilo, že u lidí tento gen ovlivňuje váhu a chuť k jídlu, nikoliv prsty.",
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -910,7 +910,7 @@
           "Pijte hodně vody - kofein dehydratuje"
         ],
         "fun_fact": "Věděli jste, že pro 'rychlé metabolizéry' (genotyp AA) má káva často ochranný vliv na srdce, zatímco pro 'pomalé metabolizéry' může riziko infarktu mírně zvyšovat? Vaše genetika určuje, zda je pro vás espresso lékem nebo jedem.",
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -1091,7 +1091,7 @@
           "Pravidelná exfoliace a séra s niacinamidem",
           "Konzumujte potraviny bohaté na beta-karoten"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -1205,7 +1205,7 @@
           "Nekuřte - kouření urychluje stárnutí pleti",
           "Dostatek spánku - kůže se regeneruje v noci"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -1441,7 +1441,7 @@
           "Vyvažte poměr omega-6:omega-3 (ideálně 4:1 nebo méně)",
           "Omezte rostlinné oleje s vysokým omega-6 (slunečnicový)"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -1612,7 +1612,7 @@
           "Pravidelně kontrolujte hladiny cholesterolu",
           "Aerobní cvičení pomáhá zvyšovat HDL (dobré) cholesterol"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -1819,7 +1819,7 @@
           "Nekuřte - kouření snižuje absorpci vitamínu A",
           "Suplementace pouze pod dohledem lékaře (toxický ve vysokých dávkách)"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -1917,7 +1917,7 @@
           "Silový trénink pro pevné kosti",
           "Omezte kofein, sodík a alkohol (vylučují vápník)"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -2048,7 +2048,7 @@
           "Vyšší dávky pouze pod dohledem lékaře",
           "Vitamín D je rozpustný v tucích - berte s jídlem obsahujícím tuk"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -2180,7 +2180,7 @@
           "Pravidelně kontrolujte hladiny (zejména ženy, sportovci)",
           "Příznaky nedostatku: únava, bledost, dušnost, slabé nehty"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -2380,7 +2380,7 @@
           "Vařením se zničí až 50% folátu - jezte i syrovou zeleninu",
           "Kontrolujte hladiny homocysteinu u lékaře"
         ],
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
@@ -2482,7 +2482,7 @@
           "Sublingvální nebo injekční forma při vážném nedostatku"
         ],
         "fun_fact": "Máte-li variantu 'non-secretor' (snížená absorpce B12), máte jednu skrytou superschopnost: jste geneticky téměř imunní vůči nejběžnějšímu typu střevní chřipky (Noroviru)!",
-        "evidence": "strong",
+        "evidence": "high",
         "combined_score_model": {
           "model": "weighted_sum",
           "score_weights": [
