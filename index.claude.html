@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MyDNA - Analýza Genetických Dat</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -662,6 +663,259 @@
             z-index: -1;
             pointer-events: none;
         }
+
+        /* ===================== PRINT STYLES ===================== */
+        @media print {
+            /* Reset body and hide animations */
+            body {
+                background: white !important;
+                color: black !important;
+                margin: 0;
+                padding: 0;
+            }
+            
+            body::before {
+                display: none !important;
+            }
+
+            /* Hide sidebar and mobile menu */
+            .sidebar,
+            #mobile-menu-toggle {
+                display: none !important;
+            }
+
+            /* Reset main content layout */
+            .main-content {
+                margin-left: 0 !important;
+                width: 100% !important;
+                height: auto !important;
+                overflow: visible !important;
+            }
+
+            /* Hide upload sections */
+            #db-upload-section,
+            #csv-upload-section {
+                display: none !important;
+            }
+
+            /* Show results section */
+            #results-section {
+                display: block !important;
+            }
+
+            /* Fix stats bar */
+            .stats-bar {
+                position: static !important;
+                background: #f8fafc !important;
+                border: 2px solid #334155 !important;
+                border-radius: 8px !important;
+                padding: 15px !important;
+                margin-bottom: 20px !important;
+                page-break-inside: avoid;
+            }
+
+            .stats-bar::before {
+                display: none !important;
+            }
+
+            /* Hide comparison and export buttons */
+            #comparison-container,
+            #export-pdf-btn {
+                display: none !important;
+            }
+
+            .stat-value {
+                color: #1e293b !important;
+                font-size: 18px !important;
+            }
+
+            .stat-label {
+                color: #475569 !important;
+            }
+
+            /* Content wrapper */
+            .content-wrapper {
+                max-width: 100% !important;
+                padding: 0 20px !important;
+            }
+
+            /* Category sections */
+            .category-section {
+                page-break-inside: avoid;
+                margin-bottom: 30px !important;
+            }
+
+            .category-connector {
+                display: none !important;
+            }
+
+            .category-header {
+                background: #f1f5f9 !important;
+                border: 2px solid #334155 !important;
+                border-radius: 8px !important;
+                padding: 15px !important;
+                margin-bottom: 15px !important;
+                page-break-inside: avoid;
+                page-break-after: avoid;
+            }
+
+            .category-header::after {
+                display: none !important;
+            }
+
+            .category-header h2 {
+                color: #1e293b !important;
+            }
+
+            .category-header p {
+                color: #475569 !important;
+            }
+
+            .category-icon-box {
+                background: #e2e8f0 !important;
+                border: 2px solid #64748b !important;
+                box-shadow: none !important;
+                animation: none !important;
+            }
+
+            /* Trait cards */
+            .trait-card {
+                background: white !important;
+                border: 2px solid #cbd5e1 !important;
+                border-radius: 8px !important;
+                padding: 15px !important;
+                margin-bottom: 15px !important;
+                margin-left: 0 !important;
+                page-break-inside: avoid;
+                box-shadow: none !important;
+            }
+
+            .trait-card::before,
+            .trait-card::after {
+                display: none !important;
+            }
+
+            .trait-title {
+                color: #1e293b !important;
+            }
+
+            .evidence-badge {
+                border: 1px solid #64748b !important;
+                background: #f1f5f9 !important;
+                color: #475569 !important;
+            }
+
+            /* Score badges */
+            .score-badge {
+                border: 2px solid !important;
+                box-shadow: none !important;
+                background: white !important;
+            }
+
+            .score-excellent {
+                border-color: #22c55e !important;
+                color: #15803d !important;
+            }
+
+            .score-good {
+                border-color: #3b82f6 !important;
+                color: #1e40af !important;
+            }
+
+            .score-average {
+                border-color: #eab308 !important;
+                color: #a16207 !important;
+            }
+
+            .score-poor,
+            .score-risk {
+                border-color: #ef4444 !important;
+                color: #b91c1c !important;
+            }
+
+            /* SNP containers */
+            .snp-container {
+                background: #f8fafc !important;
+                border: 1px solid #cbd5e1 !important;
+                padding: 10px !important;
+                margin-top: 10px !important;
+                page-break-inside: avoid;
+            }
+
+            .snp-container::before {
+                display: none !important;
+            }
+
+            .snp-meta {
+                color: #475569 !important;
+            }
+
+            .gene-badge {
+                background: #e2e8f0 !important;
+                color: #1e293b !important;
+                border: 1px solid #94a3b8 !important;
+            }
+
+            .rsid-link {
+                color: #475569 !important;
+            }
+
+            /* Variant boxes */
+            .variant-box {
+                border: 2px solid #cbd5e1 !important;
+                background: white !important;
+            }
+
+            .variant-box.active {
+                border-color: #10b981 !important;
+                background: #d1fae5 !important;
+            }
+
+            .variant-genotype {
+                color: #1e293b !important;
+            }
+
+            .variant-box.active .variant-genotype {
+                color: #047857 !important;
+            }
+
+            .variant-label {
+                color: #64748b !important;
+            }
+
+            .variant-box.active .variant-label {
+                color: #059669 !important;
+            }
+
+            /* Result explanation */
+            .result-explanation {
+                background: #f8fafc !important;
+                border-left: 4px solid #10b981 !important;
+            }
+
+            .result-text {
+                color: #334155 !important;
+            }
+
+            .result-text b {
+                color: #047857 !important;
+            }
+
+            /* Remove all animations */
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            /* Page breaks */
+            .category-section {
+                page-break-before: auto;
+            }
+
+            h1, h2, h3, h4 {
+                page-break-after: avoid;
+            }
+        }
     </style>
 </head>
 <body>
@@ -760,6 +1014,13 @@
                             </div>
                         </div>
                         <input type="file" id="file-input-comparison" accept=".csv,.txt" class="hidden">
+                    </div>
+
+                    <!-- Screenshot Export -->
+                    <div class="ml-4 pl-4 border-l border-slate-700 flex items-center">
+                        <button id="export-pdf-btn" onclick="exportPDF()" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-slate-300 hover:text-white px-4 py-2 rounded-lg font-medium flex items-center gap-2 transition text-sm group">
+                            <span class="group-hover:scale-110 transition-transform">📸</span> Stáhnout Screenshot
+                        </button>
                     </div>
                 </div>
 
@@ -1477,6 +1738,138 @@
             }, { rootMargin: '-10% 0px -80% 0px' });
             
             document.querySelectorAll('.category-section, .trait-card').forEach(el => observer.observe(el));
+        }
+
+        // =====================================================
+        // EXPORT
+        // =====================================================
+        async function exportPDF() {
+            const resultsContainer = document.getElementById('results-container');
+            const statsBar = document.querySelector('.stats-bar');
+            const button = document.getElementById('export-pdf-btn');
+            const compWrapper = document.getElementById('comparison-container');
+            const sidebar = document.getElementById('sidebar');
+            const mainContent = document.querySelector('.main-content');
+            
+            if (!resultsContainer) return;
+
+            // Show loading state
+            const originalButtonText = button.innerHTML;
+            button.innerHTML = '<span class="animate-spin">⏳</span> Generuji screenshot...';
+            button.disabled = true;
+
+            // Store original styles
+            const originalStyles = {
+                sidebarDisplay: sidebar.style.display,
+                mainMargin: mainContent.style.marginLeft,
+                mainOverflow: mainContent.style.overflow,
+                mainHeight: mainContent.style.height,
+                statsPosition: statsBar.style.position,
+                bodyBg: document.body.style.background
+            };
+
+            try {
+                // 1. Prepare layout for screenshot
+                sidebar.style.display = 'none';
+                mainContent.style.marginLeft = '0';
+                mainContent.style.overflow = 'visible';
+                mainContent.style.height = 'auto';
+                statsBar.style.position = 'static';
+                compWrapper.style.display = 'none';
+                button.closest('div').style.display = 'none';
+                
+                // 2. Create wrapper with title
+                const screenshotWrapper = document.createElement('div');
+                screenshotWrapper.id = 'screenshot-wrapper';
+                screenshotWrapper.style.cssText = `
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 1200px;
+                    background: linear-gradient(135deg, #0a0118 0%, #1a0b2e 25%, #16213e 50%, #0f3460 75%, #1a1a2e 100%);
+                    color: #e2e8f0;
+                    padding: 40px;
+                    font-family: 'Inter', sans-serif;
+                    z-index: 9999;
+                `;
+                
+                // Add title
+                const title = document.createElement('div');
+                title.style.cssText = `
+                    text-align: center;
+                    margin-bottom: 40px;
+                    padding-bottom: 30px;
+                    border-bottom: 2px solid #334155;
+                `;
+                title.innerHTML = `
+                    <div style="font-size: 64px; margin-bottom: 15px;">🧬</div>
+                    <h1 style="font-size: 42px; font-weight: bold; color: #f1f5f9; margin-bottom: 15px;">MyDNA Report</h1>
+                    <p style="color: #94a3b8; font-size: 18px;">Vygenerováno: ${new Date().toLocaleDateString('cs-CZ')}</p>
+                `;
+                screenshotWrapper.appendChild(title);
+                
+                // Clone stats (without buttons)
+                const statsClone = statsBar.cloneNode(true);
+                const cloneCompWrapper = statsClone.querySelector('#comparison-container');
+                const cloneBtnWrapper = statsClone.querySelector('#export-pdf-btn')?.closest('div');
+                if (cloneCompWrapper) cloneCompWrapper.remove();
+                if (cloneBtnWrapper) cloneBtnWrapper.remove();
+                statsClone.style.marginBottom = '40px';
+                screenshotWrapper.appendChild(statsClone);
+                
+                // Clone results content
+                const contentClone = resultsContainer.cloneNode(true);
+                screenshotWrapper.appendChild(contentClone);
+                
+                // Insert into body
+                document.body.appendChild(screenshotWrapper);
+                
+                // Wait for render
+                await new Promise(r => setTimeout(r, 500));
+                
+                // 3. Capture with html2canvas
+                const canvas = await html2canvas(screenshotWrapper, {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false,
+                    backgroundColor: '#0a0118',
+                    width: screenshotWrapper.scrollWidth,
+                    height: screenshotWrapper.scrollHeight,
+                    windowWidth: screenshotWrapper.scrollWidth,
+                    windowHeight: screenshotWrapper.scrollHeight,
+                    x: 0,
+                    y: 0
+                });
+                
+                // 4. Download as PNG
+                canvas.toBlob((blob) => {
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.download = `MyDNA_Report_${new Date().toISOString().split('T')[0]}.png`;
+                    link.href = url;
+                    link.click();
+                    URL.revokeObjectURL(url);
+                });
+                
+                // 5. Cleanup
+                document.body.removeChild(screenshotWrapper);
+
+            } catch (err) {
+                console.error('Screenshot Error:', err);
+                alert('Nepodařilo se vytvořit screenshot: ' + err.message);
+            } finally {
+                // 6. Restore all original styles
+                sidebar.style.display = originalStyles.sidebarDisplay;
+                mainContent.style.marginLeft = originalStyles.mainMargin;
+                mainContent.style.overflow = originalStyles.mainOverflow;
+                mainContent.style.height = originalStyles.mainHeight;
+                statsBar.style.position = originalStyles.statsPosition;
+                compWrapper.style.display = '';
+                button.closest('div').style.display = '';
+                
+                button.innerHTML = originalButtonText;
+                button.disabled = false;
+            }
         }
 
         // Start
